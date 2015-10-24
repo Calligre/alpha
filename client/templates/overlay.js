@@ -54,7 +54,7 @@ Template.overlay.helpers({
   template: function() {
     return Overlay.template();
   },
-  
+
   data: function() {
     return Overlay.data();
   }

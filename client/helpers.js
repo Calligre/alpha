@@ -3,16 +3,18 @@ pluralize = function(n, thing, options) {
   if (_.isUndefined(n)) {
     return thing;
   } else if (n !== 1) {
-    if (thing.slice(-1) === 's')
+    if (thing.slice(-1) === 's') {
       plural = thing + 'es';
-    else
+    } else {
       plural = thing + 's';
+    }
   }
 
-  if (options && options.hash && options.hash.wordOnly)
+  if (options && options.hash && options.hash.wordOnly) {
     return plural;
-  else
+  } else {
     return n + ' ' + plural;
+  }
 }
 
 Handlebars.registerHelper('pluralize', pluralize);

@@ -2,7 +2,7 @@ Template.admin.helpers({
   isAdmin: function() {
     return Meteor.user() && Meteor.user().admin;
   },
-  
+
   latestNews: function() {
     return News.latest();
   }
@@ -17,7 +17,7 @@ Template.admin.events({
 
     alert('Saved latest news');
   },
-  
+
   'click .login': function() {
     Meteor.loginWithTwitter();
   }
