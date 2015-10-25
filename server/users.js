@@ -6,5 +6,7 @@ Accounts.onCreateUser(function(options, user) {
   if (Meteor.users.find().count() === 0)
     user.admin = true;
 
+  user.score = 0;
+
   return user;
 });
