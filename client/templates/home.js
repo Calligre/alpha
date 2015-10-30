@@ -11,12 +11,7 @@ Template.home.helpers({
 
     return selection;
   },
-
   activities: function() {
     return Activities.latest();
-  },
-
-  latestNews: function() {
-    return News.latest();
   }
 });

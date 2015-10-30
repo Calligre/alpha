@@ -6,9 +6,11 @@ Template.activity.onRendered(function() {
   // messing up our animations
   if (Router.current().params.activityId === self.data._id) {
     var $activity = $(self.firstNode);
-    var top = $activity.offset().top;
     var $parent = $(self.firstNode).closest('.content-scrollable');
+
+    var top = $activity.offset().top;
     var parentTop = $parent.offset().top;
+
     $parent.scrollTop(top - parentTop);
   }
 });

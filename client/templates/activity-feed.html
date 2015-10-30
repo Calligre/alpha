@@ -1,7 +1,7 @@
 <template name="feed">
-  <div class="page whats-cooking">
+  <div class="page activity-feed">
 
-    {{>nav title="What's Cooking"}}
+    {{>nav title="Activity Feed"}}
 
     <div class="content-scrollable">
       <div class="list-activities {{#unless ready}}loading{{/unless}}">
@@ -10,8 +10,8 @@
             {{> activity}}
           {{else}}
             <div class="wrapper-message">
-              <div class="title-message">No one is cooking yet!</div>
-              <div class="subtitle-message">Share that you made a recipe and it will show up here.</div>
+              <div class="title-message">No one has posted anything!</div>
+              <div class="subtitle-message">Share something on Twitter, Facebook, or LinkedIn with #cde2015.</div>
             </div>
           {{/each}}
         {{else}}
