@@ -126,6 +126,10 @@ Template.appBody.helpers({
 
   notifications: function() {
     return notifications.find();
+  },
+
+  currentUserId: function(){
+    return Meteor.userId();
   }
 });
 

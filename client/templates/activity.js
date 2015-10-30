@@ -21,9 +21,5 @@ Template.activity.helpers({
   },
   recipeTitle: function() {
     return RecipesData[this.recipeName].title;
-  },
-  path: function() {
-    return Router.path('recipe', { name: this.recipeName },
-      { query: { activityId: this._id } })
   }
 })

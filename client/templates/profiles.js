@@ -1,5 +1,2 @@
-Template.bookmarks.helpers({
-  recipeCount: function() {
-    return pluralize(this.length, 'recipe');
-  }
+Template.profiles.helpers({
 });

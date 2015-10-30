@@ -1,12 +1,12 @@
 <template name="activity">
-  <a href="{{path}}" class="item-activity">
+  <a class="item-activity">
 
     <span class="attribution">
       <span class="avatar">
         <img src="{{userAvatar}}" class="image-avatar">
       </span>
       <span class="meta">
-        <span class="author">{{firstName}}</span> made <span class="recipe">{{recipeTitle}}</span>: {{text}}
+        <span class="author">{{firstName}}</span> made: {{text}}
        {{#if place}}<span class="location">&mdash;{{place}}</span>{{/if}}
        </span>
     </span>
