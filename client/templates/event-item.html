@@ -1,6 +1,5 @@
 <template name="eventItem">
   <a class="item-event" href="{{path}}">
-    {{#with event}}
       <span class="attribution">
         <span class="title-event">{{title}}</span>
         <span class="metadata-event">
@@ -9,7 +8,6 @@
           <span class="follow-event"></span>
         </span>
       </span>
-    {{/with}}
 
     <img src="{{image}}" />
   </a>
