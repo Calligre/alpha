@@ -1,14 +1,16 @@
 <template name="eventItem">
-  <a class="item-event {{highlightedClass}}" href="{{path}}">
+  <a class="item-event" href="{{path}}">
     {{#with event}}
       <span class="attribution">
         <span class="title-event">{{title}}</span>
         <span class="metadata-event">
-          <span class="author-event">{{source.name}}</span>
+          <span class="location-event">{{location}}</span>
+          <span class="time-event">{{date}}</span>
+          <span class="follow-event"></span>
         </span>
       </span>
     {{/with}}
 
-    <img src="{{eventImage event=event size=size}}" />
+    <img src="{{image}}" />
   </a>
 </template>
