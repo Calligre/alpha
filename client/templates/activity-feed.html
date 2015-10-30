@@ -4,8 +4,8 @@
     {{>nav title="Activity Feed"}}
 
     <div class="content-scrollable">
-      <div class="list-activities {{#unless ready}}loading{{/unless}}">
-        {{#if ready}}
+      <div class="list-activities {{#unless isReady}}loading{{/unless}}">
+        {{#if isReady}}
           {{#each activities}}
             {{> activity}}
           {{else}}
