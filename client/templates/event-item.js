@@ -3,7 +3,8 @@ Template.eventItem.helpers({
     return Router.path('event', this.event);
   },
   highlightedClass: function () {
-    if (this.size === 'large')
+    if (this.size === 'large') {
       return 'highlighted';
+    }
   }
 });
