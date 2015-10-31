@@ -14,6 +14,6 @@ Template.nav.helpers({
   // unexpected ways that this can happen (for example oauth, or
   // hot code push), but we can't rely on going back in such cases.
   back: function () {
-    return this.back && ! history.state.initial;
+    return this.back && !history.state.initial;
   }
 });
