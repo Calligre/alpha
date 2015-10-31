@@ -10,8 +10,11 @@
         <span class="hours"><span class="title-callout">Hours</span>
         Mon–Fri 9-6pm, Sat 10-5pm</span>
         <span class="arrow"></span>
-      </div>
-      {{> loginButtons}}
+    </div>
+	{{> loginButtons}}
+    <div>
+	{{> linkTemplate}}
+    </div>
 
       <div class="callout-news">
         <span class="title-callout">News</span>
@@ -44,4 +47,12 @@
     </div>
 
   </div>
+  </template>
+<template name="linkTemplate">
+    <div>
+	<button class="link-twitter">Link Twitter</button>	
+	<button class="link-facebook">Link Facebook</button>	
+	<button class="link-linkedin">Link LinkedIn</button>	
+    </div>
+
 </template>

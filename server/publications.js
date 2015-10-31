@@ -31,7 +31,9 @@ Meteor.publish('userData', function() {
       score: 1,
       'profile.name': 1,
       'services.twitter.profile_image_url_https': 1,
-      'services.twitter.screenName': 1
+      'services.twitter.screenName': 1,
+      'services.linkedin.id' : 1,
+      'services.facebook.id' : 1
     }
   });
 });
