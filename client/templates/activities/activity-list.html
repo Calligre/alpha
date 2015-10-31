@@ -1,0 +1,26 @@
+<template name="activityList">
+  <div class="page activity-list">
+
+    {{>nav title="Activity Feed"}}
+
+    <div class="content-scrollable">
+      <div class="list-activities {{#unless isReady}}loading{{/unless}}">
+        {{#if isReady}}
+          {{#each activities}}
+            {{> activityItem}}
+          {{else}}
+            <div class="wrapper-message">
+              <div class="title-message">No one has posted anything!</div>
+              <div class="subtitle-message">Share something on Twitter, Facebook, or LinkedIn with #cde2015.</div>
+            </div>
+          {{/each}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="icon-sync"></div>
+            <div class="title-message">Loading</div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

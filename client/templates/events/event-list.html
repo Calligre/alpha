@@ -1,0 +1,14 @@
+<template name="eventList">
+  <div class="page events">
+    {{> nav title='Events'}}
+
+    <div class="content-scrollable">
+      <div class="list-events">
+        {{#each events}}
+          {{> eventItem}}
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+</template>

@@ -1,31 +1,25 @@
-<template name="recipe">
+<template name="eventPage">
 
-  <div class="page recipe {{activeTabClass}}">
-    {{#nav title='Recipe' black=true back=true}}
-      {{#if bookmarked}}
-        <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
-      {{else}}
-        <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
-      {{/if}}
+  <div class="page event {{activeTabClass}}">
+    {{#nav title='Event' black=true back=true}}
       <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
     {{/nav}}
 
-    <div class="image-recipe" style="background-image: url('{{recipeImage recipe=this size='full'}}')"></div>
+    <div class="image-event" style="background-image: url('{{image}}')"></div>
 
-    <div class="attribution-recipe js-uncollapse">
-      <h1 class="title-recipe">{{title}}</h1>
+    <div class="attribution-event js-uncollapse">
+      <h1 class="title-event">{{title}}</h1>
       <div class="metadata-wrapper">
-        <p class="description-recipe">{{excerpt}}</p>
+        <p class="description-event">{{excerpt}}</p>
         <span class="source">{{source.name}}</span>
         <span class="time">{{cookTime}}</span>
       </div>
 
       <div class="btns-group">
-        <a class="btn-secondary {{#if isActiveTab 'make'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-recipe">Make It</a>
-        <a class="btn-secondary {{#if isActiveTab 'feed'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-feed">Pictures</a>
+        <a class="btn-secondary {{#if isActiveTab 'make'}}active{{/if}} {{#if isActiveTab 'event'}}no-state{{/if}} js-show-event">Make It</a>
+        <a class="btn-secondary {{#if isActiveTab 'feed'}}active{{/if}} {{#if isActiveTab 'event'}}no-state{{/if}} js-show-feed">Pictures</a>
       </div>
     </div>
-
 
     <div class="content-scrollable static-nav make-scrollable">
       <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a>
@@ -48,7 +42,7 @@
           ...
           </li>
       </ol>
-      <a href="{{source.url}}" target="_blank" class="btn-primary js-open">See full recipe on {{source.name}}</a>
+      <a href="{{source.url}}" target="_blank" class="btn-primary js-open">See full event on {{source.name}}</a>
     </div>
 
     <div class="content-scrollable static-nav feed-scrollable">
@@ -59,7 +53,7 @@
         {{else}}
           <div class="wrapper-message">
             <div class="title-message">No feed activity yet</div>
-            <div class="subtitle-message">Be the first to share that you made this recipe. <a class="js-share">Share now</a></div>
+            <div class="subtitle-message">Be the first to share that you made this event. <a class="js-share">Share now</a></div>
           </div>
         {{/each}}
       </div>

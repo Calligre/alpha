@@ -1,0 +1,24 @@
+<template name="profileList">
+  <div class="page profiles">
+    {{> nav title='People'}}
+
+    <div class="content-scrollable">
+      <div class="list-profiles {{#unless isReady}}loading{{/unless}}">
+        {{#if isReady}}
+          {{#each profiles}}
+            {{> profileItem}}
+          {{else}}
+            <div class="wrapper-message">
+              <div class="title-message">No one has signed up yet!</div>
+            </div>
+          {{/each}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="icon-sync"></div>
+            <div class="title-message">Loading</div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

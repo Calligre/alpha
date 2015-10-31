@@ -7,28 +7,28 @@
           <span class="title-menu">Home</span>
         </span>
       </a>
-      <a href="{{pathFor 'feed'}}" class="{{activePage 'feed'}}">
+      <a href="{{pathFor 'activityList'}}" class="{{activePage 'activityList'}}">
         <span class="wrapper-menu-item">
           <span class="icon-rss"></span>
-          <span class="title-menu">What's<br>Cooking</span>
+          <span class="title-menu">Activities</span>
         </span>
       </a>
-      <a href="{{pathFor 'recipes'}}" class="{{activePage 'recipes' 'recipe'}}">
+      <a href="{{pathFor 'eventList'}}" class="{{activePage 'eventList'}}">
         <span class="wrapper-menu-item">
           <span class="icon-category"></span>
-          <span class="title-menu">Recipes</span>
+          <span class="title-menu">Events</span>
         </span>
       </a>
-      <a href="{{pathFor 'bookmarks'}}" class="{{activePage 'bookmarks'}}">
+      <a href="{{pathFor 'profileList'}}" class="{{activePage 'profileList'}}">
         <span class="wrapper-menu-item">
           <span class="icon-bookmark-hollow"></span>
-          <span class="title-menu">Bookmarks</span>
+          <span class="title-menu">People</span>
         </span>
       </a>
-      <a href="{{pathFor 'attendees'}}" class="{{activePage 'attendees'}}">
+      <a href="{{pathFor 'profileList'}}/{{currentUserId}}" class="{{activePage 'profile'}}">
         <span class="wrapper-menu-item">
           <span class="icon-question"></span>
-          <span class="title-menu">Attendees</span>
+          <span class="title-menu">Profile</span>
         </span>
       </a>
     </section>

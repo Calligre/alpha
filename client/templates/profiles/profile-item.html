@@ -1,0 +1,14 @@
+<template name="profileItem">
+  <a class="profile-page {{highlightedClass}}" href="{{path}}">
+    <div class="content-scrollable">
+      <div>{{name}}</div>
+      {{#each arrayify services}}
+        <div>{{name}}</div>
+      {{/each}}
+      <div>{{school}}</div>
+      <div>{{year}}</div>
+      <div>{{program}}</div>
+      <div>{{about}}</div>
+    </div>
+  </a>
+</template>

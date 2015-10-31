@@ -1,0 +1,26 @@
+<template name="profilePage">
+  <div class="page profile">
+    {{> nav title='Your Profile'}}
+      <div class="content-scrollable">
+        <div class="page-profile {{#unless isReady}}loading{{/unless}}">
+        {{#if isReady}}
+          {{#with data}}
+            <div>{{name}}</div>
+            {{#each arrayify services}}
+              <div>{{name}}</div>
+            {{/each}}
+            <div>{{school}}</div>
+            <div>{{year}}</div>
+            <div>{{program}}</div>
+            <div>{{about}}</div>
+          {{/with}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="icon-sync"></div>
+            <div class="title-message">Loading</div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
