@@ -1,24 +1,24 @@
 var TAB_KEY = 'eventShowTab';
 
-Template.event.onCreated(function() {
+Template.eventPage.onCreated(function() {
   if (Router.current().params.activityId)
-    Template.event.setTab('feed');
+    Template.eventPage.setTab('feed');
   else
-    Template.event.setTab('event');
+    Template.eventPage.setTab('event');
 });
 
-Template.event.onRendered(function () {
+Template.eventPage.onRendered(function () {
   this.$('.event').touchwipe({
     wipeDown: function () {
       if (Session.equals(TAB_KEY, 'event'))
-        Template.event.setTab('make')
+        Template.eventPage.setTab('make')
     },
     preventDefaultEvents: false
   });
   this.$('.attribution-event').touchwipe({
     wipeUp: function () {
       if (! Session.equals(TAB_KEY, 'event'))
-        Template.event.setTab('event')
+        Template.eventPage.setTab('event')
     },
     preventDefaultEvents: false
   });
@@ -29,7 +29,7 @@ Template.event.onRendered(function () {
 //   so we need to help the transition out by attaching another
 //   class that indicates if the feed tab should slide out of the
 //   way smoothly, right away, or after the transition is over
-Template.event.setTab = function(tab) {
+Template.eventPage.setTab = function(tab) {
   var lastTab = Session.get(TAB_KEY);
   Session.set(TAB_KEY, tab);
 
@@ -40,7 +40,7 @@ Template.event.setTab = function(tab) {
   $('.feed-scrollable').toggleClass('delayed', toEvent);
 }
 
-Template.event.helpers({
+Template.eventPage.helpers({
   isActiveTab: function(name) {
     return Session.equals(TAB_KEY, name);
   },
@@ -55,17 +55,17 @@ Template.event.helpers({
   }
 });
 
-Template.event.events({
+Template.eventPage.events({
   'click .js-show-event': function(event) {
     event.stopPropagation();
-    Template.event.setTab('make')
+    Template.eventPage.setTab('make')
   },
   'click .js-show-feed': function(event) {
     event.stopPropagation();
-    Template.event.setTab('feed')
+    Template.eventPage.setTab('feed')
   },
   'click .js-uncollapse': function() {
-    Template.event.setTab('event')
+    Template.eventPage.setTab('event')
   },
   'click .js-share': function() {
     Overlay.open('shareOverlay', this);

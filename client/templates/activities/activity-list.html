@@ -1,5 +1,5 @@
-<template name="feed">
-  <div class="page activity-feed">
+<template name="activityList">
+  <div class="page activity-list">
 
     {{>nav title="Activity Feed"}}
 
@@ -7,7 +7,7 @@
       <div class="list-activities {{#unless isReady}}loading{{/unless}}">
         {{#if isReady}}
           {{#each activities}}
-            {{> activity}}
+            {{> activityItem}}
           {{else}}
             <div class="wrapper-message">
               <div class="title-message">No one has posted anything!</div>

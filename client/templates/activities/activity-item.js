@@ -1,4 +1,4 @@
-Template.activity.onRendered(function() {
+Template.activityItem.onRendered(function() {
   var self = this;
 
   // If the activity is in a list, scroll it into view. Note, we can't just use
@@ -15,7 +15,7 @@ Template.activity.onRendered(function() {
   }
 });
 
-Template.activity.helpers({
+Template.activityItem.helpers({
   firstName: function() {
     return this.userName.split(' ')[0];
   }
