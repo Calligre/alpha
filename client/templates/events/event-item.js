@@ -1,5 +1,5 @@
 Template.eventItem.helpers({
   path: function () {
-    return Router.path('event', this.event);
+    return Router.path('eventPage', this.event);
   }
 });
