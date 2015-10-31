@@ -3,7 +3,15 @@
     {{> nav title='Your Profile'}}
 
     <div class="content-scrollable">
-        SOME DATA ABOUT THE USER
+      <div>{{this.id}}</div>
+      <div>{{name}}</div>
+      {{#each arrayify services}}
+        <div>{{name}}</div>
+      {{/each}}
+      <div>{{school}}</div>
+      <div>{{year}}</div>
+      <div>{{program}}</div>
+      <div>{{about}}</div>
     </div>
   </div>
 </template>
