@@ -33,20 +33,20 @@
       </a>
     </section>
 
-      <div class="notifications">
-        {{#unless connected}}
-          <div class="notification">
-            <span class="icon-sync"></span>
-            <div class="title-notification">Trying to connect</div>
-          </div>
-        {{/unless}}
-        {{#each notifications}}
-          <div class="notification">
-            <a class="btn-primary js-notification-action">{{action}}</a>
-            <div class="title-notification">{{title}}</div>
-          </div>
-        {{/each}}
-      </div>
+    <div class="notifications">
+      {{#unless connected}}
+        <div class="notification">
+          <span class="icon-sync"></span>
+          <div class="title-notification">Trying to connect</div>
+        </div>
+      {{/unless}}
+      {{#each notifications}}
+        <div class="notification">
+          <a class="btn-primary js-notification-action">{{action}}</a>
+          <div class="title-notification">{{title}}</div>
+        </div>
+      {{/each}}
+    </div>
 
     {{> overlay}}
 

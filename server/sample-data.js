@@ -24,6 +24,7 @@ Meteor.startup(function() {
     image: '/img/activity/activity-placeholder-strawberry-640x640.jpg',
     description: 'How do you software? Let Clarisse tell you how!',
     date: new Date,
-    location: 'Waterloo, Ontario, CA'
+    location: 'Waterloo, Ontario, CA',
+    attendees: []
   });
 });

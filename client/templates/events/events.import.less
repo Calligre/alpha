@@ -227,6 +227,12 @@
   .metadata-wrapper { .transition( all @transition-time * .5 @easing); }
 }
 
+.page.event, .page.events {
+  .content-scrollable {
+    margin-top: 47px;
+  }
+}
+
 // Move the feed over the top when we are on it
 .page.event.feed {
   .feed-scrollable { .transform(translate3d(0,0,0)); }
@@ -273,5 +279,11 @@
       .position(absolute, auto, auto, auto, 50%, auto, 100%);
       .transform(translate3d(-50%,0,0));
     }
+  }
+}
+
+.page.event {
+  .share-image {
+    height: 320px;
   }
 }

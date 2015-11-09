@@ -1,20 +1,19 @@
 var TAB_KEY = 'eventShowTab';
 
 Template.eventPage.onCreated(function() {
-  if (Router.current().params.activityId)
-    Template.eventPage.setTab('feed');
-  else
-    Template.eventPage.setTab('event');
+  Template.eventPage.setTab('event');
 });
 
 Template.eventPage.onRendered(function () {
   this.$('.event').touchwipe({
     wipeDown: function () {
-      if (Session.equals(TAB_KEY, 'event'))
+      if (Session.equals(TAB_KEY, 'event')) {
         Template.eventPage.setTab('make')
+      }
     },
     preventDefaultEvents: false
   });
+
   this.$('.attribution-event').touchwipe({
     wipeUp: function () {
       if (! Session.equals(TAB_KEY, 'event'))
@@ -47,22 +46,26 @@ Template.eventPage.helpers({
   activeTabClass: function() {
     return Session.get(TAB_KEY);
   },
-  bookmarked: function() {
-    return Meteor.user() && _.include(Meteor.user().bookmarkedEventNames, this.name);
+  data: function() {
+    var matches = Events.find({_id: Router.current().options.params.id}).fetch();
+    if (matches.length != 1) {
+        console.error("Holy fuck how did you do that?")
+    }
+    return matches[0];
   },
   activities: function() {
-    return Activities.find({eventName: this.name}, {sort: {date: -1}});
+    return [];
+    // return Activities.find({eventName: this.name}, {sort: {date: -1}});
   }
 });
 
 Template.eventPage.events({
-  'click .js-show-event': function(event) {
+  'click .js-add-to-agenda': function(event) {
+    Events.update({_id: Router.current().options.params.id}, {$push: {'attendees': Meteor.userId()}});
+  },
+  'click .js-show-attend': function(event) {
     event.stopPropagation();
     Template.eventPage.setTab('make')
-  },
-  'click .js-show-feed': function(event) {
-    event.stopPropagation();
-    Template.eventPage.setTab('feed')
   },
   'click .js-uncollapse': function() {
     Template.eventPage.setTab('event')
