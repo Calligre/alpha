@@ -1,62 +1,32 @@
 <template name="eventPage">
-
   <div class="page event {{activeTabClass}}">
-    {{#nav title='Event' black=true back=true}}
+    {{#nav title='Event'}}
       <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
     {{/nav}}
 
     <div class="image-event" style="background-image: url('{{image}}')"></div>
 
     <div class="attribution-event js-uncollapse">
-      <h1 class="title-event">{{title}}</h1>
-      <div class="metadata-wrapper">
-        <p class="description-event">{{excerpt}}</p>
-        <span class="source">{{source.name}}</span>
-        <span class="time">{{cookTime}}</span>
-      </div>
+      {{#with data}}
+        <img src="{{image}}" />
+        <h1 class="title-event">{{title}}</h1>
+        <span class="metadata-event">
+          <span class="location-event">{{location}}</span>
+          <br />
+          <span class="time-event">{{date}}</span>
+        </span>
+      {{/with}}
 
       <div class="btns-group">
-        <a class="btn-secondary {{#if isActiveTab 'make'}}active{{/if}} {{#if isActiveTab 'event'}}no-state{{/if}} js-show-event">Make It</a>
-        <a class="btn-secondary {{#if isActiveTab 'feed'}}active{{/if}} {{#if isActiveTab 'event'}}no-state{{/if}} js-show-feed">Pictures</a>
+        <a class="btn-secondary no-state js-show-attend">Attend</a>
       </div>
     </div>
 
     <div class="content-scrollable static-nav make-scrollable">
-      <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a>
+      <a class="btn-tertiary js-share">Add this to your agenda?</a>
+      <img class='share-image' src="{{data.image}}" />
 
-      <h2 class="list-title">Ingredients</h2>
-      <ul class="list-ingredients">
-        {{#each ingredients}}
-          <li class="item-ingredient">{{this}}</li>
-        {{/each}}
-      </ul>
-
-      <h2 class="list-title">Directions</h2>
-      <ol class="list-directions">
-        {{#each directions}}
-          <li class="item-direction">
-            <span class="text">{{this}}</span>
-          </li>
-        {{/each}}
-          <li class="item-direction">
-          ...
-          </li>
-      </ol>
-      <a href="{{source.url}}" target="_blank" class="btn-primary js-open">See full event on {{source.name}}</a>
-    </div>
-
-    <div class="content-scrollable static-nav feed-scrollable">
-      <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a>
-      <div class="list-activities">
-        {{#each activities}}
-          {{> activity}}
-        {{else}}
-          <div class="wrapper-message">
-            <div class="title-message">No feed activity yet</div>
-            <div class="subtitle-message">Be the first to share that you made this event. <a class="js-share">Share now</a></div>
-          </div>
-        {{/each}}
-      </div>
+      <div class="btn-primary js-uncollapse js-add-to-agenda">Confirm</div>
     </div>
   </div>
 </template>

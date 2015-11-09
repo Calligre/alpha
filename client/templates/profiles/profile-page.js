@@ -6,7 +6,6 @@ Template.profilePage.helpers({
         }
         return matches[0];
     },
-
     isReady: function() {
         return Router.current().userSubscription.ready();
     }
