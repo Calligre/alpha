@@ -1,25 +1,21 @@
 Meteor.startup(function() {
   Activities._ensureIndex({text: 1, image: 1, date: 1}, {unique: true, dropDups: true});
-  try {
-    Activities.insert({
-      text: "CDE 2015 is so cool I love life, the Universe, and everything!!!! #cde2015",
-      image: null,
-      userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
-      userName: "Kevin James",
-      place: "Waterloo, Ontario",
-      date: new Date(2000),
-      likes: []
-    });
-    Activities.insert({
-      text: "#cde2015",
-      image: "/img/activity/activity-placeholder-strawberry-640x640.jpg",
-      userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
-      userName: "Kevin James",
-      place: "Waterloo, Ontario",
-      date: new Date(2000),
-      likes: []
-    });
-  } catch (e) { }
+  // Activities.insert({
+  //   text: "CDE 2015 is so cool I love life, the Universe, and everything!!!! #cde2015",
+  //   image: null,
+  //   userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
+  //   userName: "Kevin James",
+  //   place: "Waterloo, Ontario",
+  //   date: new Date(2000)
+  // });
+  // Activities.insert({
+  //   text: "#cde2015",
+  //   image: "/img/activity/activity-placeholder-strawberry-640x640.jpg",
+  //   userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
+  //   userName: "Kevin James",
+  //   place: "Waterloo, Ontario",
+  //   date: new Date(2000)
+  // });
 
   Events._ensureIndex({title: 1, speaker: 1, startDate: 1, endDate: 1}, {unique: true, dropDups: true});
   try {
@@ -27,7 +23,7 @@ Meteor.startup(function() {
       title: "Looking Back",
       speaker: "Irving Leblanc, Assembly of First Nations",
       image: "/img/activity/activity-placeholder-strawberry-640x640.jpg",
-      description: "A retrospective on diversity in engineering, how far we’ve come and how far we have to go.\nWelcome: University of Waterloo Aboriginal Student Association\nOpening Remarks: Mary Wells, University of Waterloo\nSponsor Introduction: Melanie Stare, Potash Corporation",
+      description: "A retrospective on diversity in engineering, how far we've come and how far we have to go.\nWelcome: University of Waterloo Aboriginal Student Association\nOpening Remarks: Mary Wells, University of Waterloo\nSponsor Introduction: Melanie Stare, Potash Corporation",
       startDate: new Date(2015, 11, 14, 9, 00),
       endDate: new Date(2015, 11, 14, 10, 15),
       location: "Waterloo Inn",
@@ -37,7 +33,7 @@ Meteor.startup(function() {
       title: "Psychology and Behaviour",
       speaker: "Crystal Tse, University of Waterloo",
       image: "/img/activity/activity-placeholder-strawberry-640x640.jpg",
-      description: "This talk will examine social psychological research on issues related to women's and minorities’ experiences in the fields in which they are underrepresented and negatively stereotyped.",
+      description: "This talk will examine social psychological research on issues related to women's and minorities' experiences in the fields in which they are underrepresented and negatively stereotyped.",
       startDate: new Date(2015, 11, 14, 10, 15),
       endDate: new Date(2015, 11, 14, 11, 15),
       location: "Room 1",
@@ -227,7 +223,7 @@ Meteor.startup(function() {
       title: "Lightning Talks",
       speaker: "Various",
       image: "/img/activity/activity-placeholder-strawberry-640x640.jpg",
-      description: "A delegate presented set of “TED style” talks featuring cool ideas, projects, and experiences.",
+      description: "A delegate presented set of \"TED style\" talks featuring cool ideas, projects, and experiences.",
       startDate: new Date(2015, 11, 15, 13, 45),
       endDate: new Date(2015, 11, 15, 14, 45),
       location: "Room 2",
