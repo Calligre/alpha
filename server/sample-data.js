@@ -16,7 +16,7 @@ Meteor.startup(function() {
       userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
       userName: "Kevin James",
       place: "Waterloo, Ontario",
-      date: new Date(2000)
+      date: new Date(2000),
       likes: []
     });
   } catch (e) { }
