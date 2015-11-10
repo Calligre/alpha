@@ -1,12 +1,3 @@
-/*
-  activity structure:{
-    user name
-    user image
-    date
-    text
-    who liked
-  }
-*/
 Template.activityItem.onRendered(function() {
   var self = this;
 
@@ -27,10 +18,6 @@ Template.activityItem.onRendered(function() {
 Template.activityItem.helpers({
   firstName: function() {
     return this.userName.split(' ')[0];
-  },
-
-  fullName: function(){
-    return this.userName;
   },
 
   formattedDate: function(){
