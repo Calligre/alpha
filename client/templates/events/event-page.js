@@ -61,6 +61,29 @@ Template.eventPage.helpers({
 
 Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
+    var matches = Events.find({_id: Router.current().options.params.id}).fetch();
+    if (matches.length != 1) {
+        console.error("Holy fuck how did you do that?")
+    }
+    var attendingEvent = matches[0];
+
+    var dateToICSString = function(now)
+    {
+      return "" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCMinutes() + now.getUTCSeconds() + "Z";
+    };
+
+    var cal = "BEGIN:VCALENDAR\nPRODID:-//Google Inc//Google Calendar 70.9054//EN\nVERSION:2.0\nCALSCALE:GREGORIAN\nX-WR-TIMEZONE:America/Toronto\n";
+    cal += "BEGIN:VEVENT\n";
+    cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
+    cal += "DTSTAMP:" + dateToICSString(new Date()) + "\n";
+    cal += "DTSTART:" + dateToICSString(attendingEvent['startDate']) + "\n";
+    cal += "DTEND:" + dateToICSString(attendingEvent['endDate']) + "\n";
+    cal += "SUMMARY:" + attendingEvent['title'] + "\n";
+    cal += "DESCRIPTION:" + "Speaker: " + attendingEvent['speaker'] + "; " + attendingEvent['description'] + "\n";
+    cal += "END:VEVENT\nEND:VCALENDAR\n"
+
+    window.open( "data:text/calendar;charset=utf8," + escape(cal));
+
     Events.update({_id: Router.current().options.params.id}, {$addToSet: {'attendees': Meteor.userId()}});
   },
   'click .js-show-attend': function(event) {
