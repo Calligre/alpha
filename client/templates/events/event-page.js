@@ -56,6 +56,14 @@ Template.eventPage.helpers({
   activities: function() {
     return [];
     // return Activities.find({eventName: this.name}, {sort: {date: -1}});
+  },
+
+  startDate: function(){
+    return $.format.date(this.startDate.getTime(), "ddd h:mmp");
+  },
+
+  endDate: function(){
+    return $.format.date(this.endDate.getTime(), "ddd h:mmp");
   }
 });
 
