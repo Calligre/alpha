@@ -61,7 +61,7 @@ Template.eventPage.helpers({
 
 Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
-    Events.update({_id: Router.current().options.params.id}, {$push: {'attendees': Meteor.userId()}});
+    Events.update({_id: Router.current().options.params.id}, {$addToSet: {'attendees': Meteor.userId()}});
   },
   'click .js-show-attend': function(event) {
     event.stopPropagation();
