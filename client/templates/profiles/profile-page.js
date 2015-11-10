@@ -1,10 +1,10 @@
 Template.profilePage.helpers({
     data: function() {
-        var matches = Meteor.users.find({_id: Router.current().options.params.id}).fetch();
-        if (matches.length != 1) {
-            console.error("Holy fuck how did you do that?")
+        var matches = Meteor.users.findOne(Router.current().options.params.id);
+        if (!matches) {
+            console.error("Profile not found! " + Router.current().options.params.id);
         }
-        return matches[0];
+        return matches;
     },
     isReady: function() {
         return Router.current().userSubscription.ready();
