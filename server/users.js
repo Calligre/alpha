@@ -1,10 +1,10 @@
 Accounts.onCreateUser(function(options, user) {
   _.extend(user, {
-    name: 'Kevin James',
-    school: 'Waterloo',
-    year: '2017',
-    program: 'Software Engineering',
-    about: 'I am a person.'
+    name: options['profile']['name'],
+    school: 'The School of Life',
+    year: '2015',
+    program: 'Engineering',
+    about: 'I love CDE 2015!'
   });
 
   return user;

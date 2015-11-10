@@ -1,4 +1,7 @@
 Template.eventList.helpers({
+  agenda_events: function() {
+    return Events.find({attendees: Meteor.userId()}, {sort: {date: -1}});
+  },
   events: function() {
     return Events.find({}, {sort: {date: -1}});
   },

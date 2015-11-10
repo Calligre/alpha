@@ -4,11 +4,14 @@ Template.home.helpers({
   }
 });
 
-Template.home.events({
-  'click #login-twitter': function () {
-    Meteor.loginWithTwitter({loginStyle: 'redirect'});
+Template.linkTemplate.events({
+  'click .link-twitter': function() {
+    Meteor.linkWithTwitter();
   },
-  'click #logout-button': function() {
-    Meteor.logout();
+  'click .link-facebook': function() {
+    Meteor.linkWithFacebook();
+  },
+  'click .link-linkedin': function() {
+    Meteor.linkWithLinkedIn();
   }
-})
+});

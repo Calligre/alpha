@@ -9,13 +9,19 @@
         </h1>
         <span class="arrow"></span>
       </div>
-      {{#if isLoggedIn}}
-        FAQ STUFF
-        <div id="logout-button" class="button">Log Out</div>
-      {{else}}
-        <div id="login-twitter" class="button">Login With Twitter</div>
-      {{/if}}
-    </div>
 
+      <div>
+        {{> loginButtons}}
+        {{> linkTemplate}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="linkTemplate">
+  <div>
+    <button class="link-twitter">Connect with Twitter.</button>
+    <button class="link-facebook">Connect with Facebook.</button>
+    <button class="link-linkedin">Connect with LinkedIn.</button>
   </div>
 </template>

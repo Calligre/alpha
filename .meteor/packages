@@ -37,3 +37,6 @@ ejson
 spacebars
 check
 accounts-facebook
+jonperl:accounts-linkedin
+bozhao:link-accounts-modified
+accounts-ui

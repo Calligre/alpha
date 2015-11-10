@@ -1,13 +1,13 @@
 <template name="eventItem">
-  <a class="item-event" href="{{path}}">
-      <span class="attribution">
-        <span class="title-event">{{title}}</span>
-        <span class="metadata-event">
-          <span class="location-event">{{location}}</span>
-          <span class="time-event">{{date}}</span>
-          <span class="follow-event"></span>
-        </span>
+  <a class="item-event" href="{{pathFor 'eventList'}}/{{_id}}">
+    <span class="attribution">
+      <span class="title-event">{{title}}</span>
+      <span class="metadata-event">
+        <span class="location-event">{{location}}</span>
+        <span class="time-event">{{startDate}} - {{endDate}}</span>
+        <span class="follow-event"></span>
       </span>
+    </span>
 
     <img src="{{image}}" />
   </a>
