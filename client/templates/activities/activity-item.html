@@ -8,16 +8,16 @@
         {{#if image}}
           <div class="bg-image" style="background-image: url('{{image}}');"></div>
         {{/if}}
-        <div>{{text}}</div>
+        <div class="post">{{text}}</div>
 
         <span class="author">{{userName}}</span>
         <span class="date">{{formattedDate}}</span>
-        <span class="likes">{{likeCount}} Likes</span>
         {{#if isLiked}}
-        <span class="activity-unlike"> Unlike</span>
+	<span class="activity-unlike"><i class="fa fa-heart liked"></i></span>
         {{else}}
-        <span class="activity-like"> Like</span>
+	<span class="activity-like"><i class="fa fa-heart"></i></span>
         {{/if}}
+        <span class="likes">{{likeCount}}</span>
        </span>
     </span>
   </span>
