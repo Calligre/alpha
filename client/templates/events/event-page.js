@@ -61,7 +61,6 @@ Template.eventPage.helpers({
 
 Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
-    Events.update({_id: Router.current().options.params.id}, {$push: {'attendees': Meteor.userId()}});
     var matches = Events.find({_id: Router.current().options.params.id}).fetch();
     if (matches.length != 1) {
         console.error("Holy fuck how did you do that?")
@@ -84,6 +83,8 @@ Template.eventPage.events({
     cal += "END:VEVENT\nEND:VCALENDAR\n"
 
     window.open( "data:text/calendar;charset=utf8," + escape(cal));
+
+    Events.update({_id: Router.current().options.params.id}, {$addToSet: {'attendees': Meteor.userId()}});
   },
   'click .js-show-attend': function(event) {
     event.stopPropagation();

@@ -3,6 +3,26 @@ if (typeof Meteor.settings === 'undefined') {
 }
 
 ServiceConfiguration.configurations.upsert(
+  { service: "facebook" },
+  {
+    $set: {
+      appId: Meteor.settings.facebook.consumerKey,
+      secret: Meteor.settings.facebook.secret
+    }
+  }
+);
+
+ServiceConfiguration.configurations.upsert(
+  { service: "linkedin" },
+  {
+    $set: {
+      clientId: Meteor.settings.linkedin.consumerKey,
+      secret: Meteor.settings.linkedin.secret
+    }
+  }
+);
+
+ServiceConfiguration.configurations.upsert(
   { service: "twitter" },
   {
     $set: {

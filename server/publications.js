@@ -14,6 +14,7 @@ Meteor.publish('user', function() {
   return Meteor.users.find({}, {
     fields: {
       'services.resume': 0,
+      'services.linkedin.accessToken': 0,
       'services.twitter.accessToken': 0,
       'services.twitter.accessTokenSecret': 0
     },
