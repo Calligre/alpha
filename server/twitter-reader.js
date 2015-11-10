@@ -19,7 +19,7 @@ var update_activities = function() {
           userAvatar: elem['user']['profile_image_url'],
           userName: elem['user']['name'],
           place: elem['user']['location'],
-          date: elem['created_at'],
+          date: new Date(elem['created_at']),
           likes: []
         });
       } catch (e) { }
