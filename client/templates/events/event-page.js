@@ -47,11 +47,11 @@ Template.eventPage.helpers({
     return Session.get(TAB_KEY);
   },
   data: function() {
-    var matches = Events.find({_id: Router.current().options.params.id}).fetch();
-    if (matches.length != 1) {
-        console.error("Holy fuck how did you do that?")
+    var matches = Events.findOne(Router.current().options.params.id);
+    if (!matches) {
+        console.error("Event not found! " + Router.current().options.params.id);
     }
-    return matches[0];
+    return matches;
   },
   activities: function() {
     return [];
@@ -69,11 +69,10 @@ Template.eventPage.helpers({
 
 Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
-    var matches = Events.find({_id: Router.current().options.params.id}).fetch();
-    if (matches.length != 1) {
-        console.error("Holy fuck how did you do that?")
+    var attendingEvent = Events.findOne(Router.current().options.params.id);
+    if (!attendingEvent) {
+        console.error("Event ICS: Holy fuck how did you do that?")
     }
-    var attendingEvent = matches[0];
 
     var dateToICSString = function(now)
     {

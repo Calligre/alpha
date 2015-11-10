@@ -39,14 +39,29 @@
       display: block;
     }
 
+    .post {
+	margin-bottom: 5px;
+    }
+
     .author { .type-black; }
 
-    .recipe {
-      .type-bold;
-      color: @color-primary;
+    .date {
+	font-size: 10px;	
     }
 
     .location { color: @color-medium-rare; }
+
+    .activity-like, .activity-unlike {
+	margin-left: 10px;
+    }
+
+    .activity-like, .activity-unlike, .likes {
+	float: right;
+    }
+
+    .fa-heart:hover, .liked {
+	color: red;
+    }
   }
 
   .bg-image {
