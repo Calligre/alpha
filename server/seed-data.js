@@ -1,12 +1,13 @@
 Meteor.startup(function() {
-  Activities._ensureIndex({text: 1, image: 1, date: 1}, {unique: true, dropDups: true});
+  Activities._ensureIndex({text: 1, userName: 1}, {unique: true, dropDups: true});
   // Activities.insert({
   //   text: "CDE 2015 is so cool I love life, the Universe, and everything!!!! #cde2015",
   //   image: null,
   //   userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
   //   userName: "Kevin James",
   //   place: "Waterloo, Ontario",
-  //   date: new Date(2000)
+  //   date: new Date(2000),
+  //   likes: []
   // });
   // Activities.insert({
   //   text: "#cde2015",
@@ -14,7 +15,8 @@ Meteor.startup(function() {
   //   userAvatar: "https://avatars1.githubusercontent.com/u/3341822?v=2&s=400",
   //   userName: "Kevin James",
   //   place: "Waterloo, Ontario",
-  //   date: new Date(2000)
+  //   date: new Date(2000),
+  //   likes: []
   // });
 
   Events._ensureIndex({title: 1, speaker: 1, startDate: 1, endDate: 1}, {unique: true, dropDups: true});

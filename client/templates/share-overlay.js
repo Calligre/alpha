@@ -22,11 +22,12 @@ Template.shareOverlay.helpers({
 
 Template.shareOverlay.events({
   'click .js-attach-image': function() {
-    MeteorCamera.getPicture({width: 320}, function(error, data) {
-      if (error)
+    MeteorCamera.getPicture({width: 280}, function(error, data) {
+      if (error) {
         alert(error.reason);
-      else
+      } else {
         Session.set(IMAGE_KEY, data);
+      }
     });
   },
 
@@ -46,22 +47,18 @@ Template.shareOverlay.events({
     var text = $(event.target).find('[name=text]').val();
     var tweet = Session.get(TWEETING_KEY);
 
-    Meteor.call('createActivity', {
-      recipeName: self.name,
-      text: text,
-      image: Session.get(IMAGE_KEY)
-    }, tweet, Geolocation.currentLocation(), function(error, result) {
+    Meteor.call('createActivity',
+                { text: text, image: Session.get(IMAGE_KEY) },
+                tweet,
+                function(error, result) {
       if (error) {
         alert(error.reason);
       } else {
         Template.appBody.addNotification({
           action: 'View',
-          title: 'Your photo was shared.',
+          title: 'Your post was shared.',
           callback: function() {
-            Router.go('recipe', { name: self.name },
-              { query: { activityId: result } });
-
-            Template.recipe.setTab('feed');
+            Router.go('activites');
           }
         });
       }
