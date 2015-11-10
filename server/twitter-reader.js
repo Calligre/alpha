@@ -1,10 +1,10 @@
 var Twit = Meteor.npmRequire('twit');
 
 var T = new Twit({
-  consumer_key: 'iRZeYHBHvcyCqlFWkWdqJw',
-  consumer_secret: 'tIuqXo7bfH7YHiCFHVSlhCPLuC0rOiHcbBA5MWRbY',
-  access_token: '883440030-HDfCTkgRRICuhvH3dlPNKV1mzzTSv2VtrVEeA2pS',
-  access_token_secret: 'kpGiZA3bGmHP4oeRZktklklw6lYxILVoSsRa1JRlixVI7',
+  consumer_key: Meteor.settings.twitter.consumerKey,
+  consumer_secret: Meteor.settings.twitter.secret,
+  access_token: Meteor.settings.twitter.accessToken,
+  access_token_secret: Meteor.settings.twitter.accessTokenSecret,
   app_only_auth: true
 });
 
@@ -19,7 +19,7 @@ var update_activities = function() {
           userAvatar: elem['user']['profile_image_url'],
           userName: elem['user']['name'],
           place: elem['user']['location'],
-          date: elem['created_at'],
+          date: new Date(elem['created_at']),
           likes: []
         });
       } catch (e) { }
