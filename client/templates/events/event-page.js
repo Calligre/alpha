@@ -62,6 +62,37 @@ Template.eventPage.helpers({
 Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
     Events.update({_id: Router.current().options.params.id}, {$push: {'attendees': Meteor.userId()}});
+    var matches = Events.find({_id: Router.current().options.params.id}).fetch();
+    if (matches.length != 1) {
+        console.error("Holy fuck how did you do that?")
+    }
+    var attendingEvent = matches[0];
+    console.log(attendingEvent);
+    // var cal = ics();
+    // cal.addEvent(attendingEvent['title'], "Speaker: " + attendingEvent['speaker'] + '\n' + attendingEvent['description'], attendingEvent['startDate'], attendingEvent['endDate']);
+    // console.log(cal);
+    // cal.download(attendingEvent['title']);
+
+    var cal = "BEGIN:VCALENDAR\nPRODID:-//Google Inc//Google Calendar 70.9054//EN\nVERSION:2.0\nCALSCALE:GREGORIAN\nX-WR-TIMEZONE:America/Toronto\n";
+    cal += "BEGIN:VEVENT" + '\n';
+    cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
+    var now = new Date();
+    cal += "DTSTAMP:" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCHours() + now.getUTCSeconds() + "Z\n";
+    now = attendingEvent['startDate'];
+    cal += "DTSTART:" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCHours() + now.getUTCSeconds() + "Z\n";
+    now = attendingEvent['endDate'];
+    cal += "DTEND:" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCHours() + now.getUTCSeconds() + "Z\n";
+    cal += "SUMMARY:" + attendingEvent['title'] + "\n";
+    cal += "DESCRIPTION:" + "Speaker: " + attendingEvent['speaker'] + "; " + attendingEvent['description'] + "\n";
+    cal += "END:VEVENT\nEND:VCALENDAR\n"
+    
+    console.log(cal);
+
+    window.open( "data:text/calendar;charset=utf8," + escape(cal));
+
+
+
+
   },
   'click .js-show-attend': function(event) {
     event.stopPropagation();
