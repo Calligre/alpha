@@ -70,8 +70,7 @@ Template.eventPage.events({
 
     var dateToICSString = function(now)
     {
-      var x = "" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCMinutes() + now.getUTCSeconds() + "Z";
-      return x;
+      return "" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCMinutes() + now.getUTCSeconds() + "Z";
     };
 
     var cal = "BEGIN:VCALENDAR\nPRODID:-//Google Inc//Google Calendar 70.9054//EN\nVERSION:2.0\nCALSCALE:GREGORIAN\nX-WR-TIMEZONE:America/Toronto\n";
