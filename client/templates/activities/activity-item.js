@@ -1,3 +1,12 @@
+/*
+  activity structure:{
+    user name
+    user image
+    date
+    text
+    who liked
+  }
+*/
 Template.activityItem.onRendered(function() {
   var self = this;
 
@@ -18,5 +27,33 @@ Template.activityItem.onRendered(function() {
 Template.activityItem.helpers({
   firstName: function() {
     return this.userName.split(' ')[0];
+  },
+
+  fullName: function(){
+    return this.userName;
+  },
+
+  formattedDate: function(){
+    return $.format.date(this.date.getTime(), "ddd h:mmp");
+  },
+
+  likeCount: function(){
+    return this.likes.length;
+  },
+
+  isLiked: function(){
+    var match = _.find(this.likes, function(d){
+      return d = Meteor.userId();
+    });
+    return !_.isUndefined(match);
   }
-})
+});
+
+Template.activityItem.events({
+  'click .activity-like': function(){
+      Meteor.call('likeActivity', this._id);
+  },
+  'click .activity-unlike': function(){
+      Meteor.call('unlikeActivity', this._id);
+  }
+});

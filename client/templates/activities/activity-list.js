@@ -6,3 +6,4 @@ Template.activityList.helpers({
     return Router.current().activitySubscription.ready();
   }
 })
+
