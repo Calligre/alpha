@@ -8,12 +8,5 @@ Template.profilePage.helpers({
     },
     isReady: function() {
         return Router.current().userSubscription.ready();
-    },
-    place: function(){
-        var idx;
-        Meteor.users.find({}, {sort: {points: 1}}).forEach(function(item, ind){
-           if(item._id == Meteor.userId()){ idx = ind; return true;};
-        });
-        return idx + 1;
-  }
+    }
 });

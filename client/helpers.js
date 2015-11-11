@@ -16,6 +16,13 @@ pluralize = function(n, thing, options) {
     return n + ' ' + plural;
   }
 }
+Handlebars.registerHelper("place", function(){
+    var idx;
+    Meteor.users.find({}, {sort: {points: 1}}).forEach(function(item, ind){
+       if(item._id == Meteor.userId()){ idx = ind; return true;};
+    });
+    return idx + 1;
+});
 
 Handlebars.registerHelper('pluralize', pluralize);
 
