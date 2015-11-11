@@ -16,19 +16,19 @@
             <span class="title-menu">Activities</span>
           </span>
         </a>
-        <a href="{{pathFor 'eventList'}}" class="{{activePage 'eventList'}}">
+        <a href="{{pathFor 'eventList'}}" class="{{activePage 'eventList' 'eventPage'}}">
           <span class="wrapper-menu-item">
             <span class="icon-category"></span>
             <span class="title-menu">Events</span>
           </span>
         </a>
-        <a href="{{pathFor 'profileList'}}" class="{{activePage 'profileList'}}">
+        <a href="{{pathFor 'profileList'}}" class="{{activePage 'profileList' 'profilePage'}}">
           <span class="wrapper-menu-item">
             <span class="icon-bookmark-hollow"></span>
             <span class="title-menu">People</span>
           </span>
         </a>
-        <a href="{{pathFor 'profileList'}}/{{currentUserId}}" class="{{activePage 'profile'}}">
+        <a href="{{pathFor 'profileList'}}/{{currentUserId}}">
           <span class="wrapper-menu-item">
             <span class="icon-question"></span>
             <span class="title-menu">Profile</span>
