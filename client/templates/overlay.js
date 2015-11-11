@@ -29,18 +29,16 @@ Template.overlay.onRendered(function() {
     insertElement: function(node, next, done) {
       var $node = $(node);
 
-      $node
-      .hide()
-      .insertBefore(next)
-      .velocity('fadeIn', {
+      $node.hide()
+           .insertBefore(next)
+           .velocity('fadeIn', {
         duration: ANIMATION_DURATION
       });
     },
     removeElement: function(node, done) {
       var $node = $(node);
 
-      $node
-      .velocity("fadeOut", {
+      $node.velocity("fadeOut", {
         duration: ANIMATION_DURATION,
         complete: function() {
           $node.remove();
@@ -51,12 +49,11 @@ Template.overlay.onRendered(function() {
 });
 
 Template.overlay.helpers({
-  template: function() {
-    return Overlay.template();
-  },
-
   data: function() {
     return Overlay.data();
+  },
+  template: function() {
+    return Overlay.template();
   }
 });
 
