@@ -17,8 +17,6 @@ Template.profileList.events({
   }
 });
 
-if (Meteor.is_client){
-  Meteor.startup(function(){
+Template.profileList.created = function(){
     Session.set("sort_by_points", false);
-  });
 }
