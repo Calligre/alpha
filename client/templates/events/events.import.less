@@ -240,6 +240,63 @@
 }
 
 .page.events {
+  .event-thumbnail {
+    opacity: 0.3;
+  }
+
+  .item-event {
+    height: 200px;
+    width: 100%;
+  }
+
+  .attribution-event {
+    .title-event {
+      color: black;
+      font-size: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 25px 5px;
+    }
+
+    .metadata-event {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 5px;
+      text-align: center;
+
+      .location-event {
+        .type-bold;
+        color: rgb(192,0,111);
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .date-event, .time-event {
+        color: rgb(68,69,69);
+        display: block;
+      }
+    }
+  }
+
+  .events-toggle {
+    background-color: #bbbbbb;
+    color: white;
+    width: 50%;
+    margin: -1px;
+    text-align: center;
+    padding: 15px;
+    display: inline-block !important;
+
+    &.selected {
+      background-color: #7c7c7c
+    }
+  }
+
   .item-recipe:first-child {
     height: 400px;
 

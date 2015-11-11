@@ -2,10 +2,15 @@ Template.eventItem.helpers({
   path: function () {
     return Router.path('eventPage', this.event);
   },
-  startDate: function() {
-    return $.format.date(this.startDate.getTime(), "ddd h:mmp");
+  date: function() {
+    return $.format.date(this.startDate.getTime(), "ddd");
   },
-  endDate: function() {
-    return $.format.date(this.endDate.getTime(), "ddd h:mmp");
+
+  startDate: function(){
+    return $.format.date(this.startDate.getTime(), "h:mmp");
+  },
+
+  endDate: function(){
+    return $.format.date(this.endDate.getTime(), "h:mmp");
   }
 });
