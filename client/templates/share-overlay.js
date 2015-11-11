@@ -58,7 +58,7 @@ Template.shareOverlay.events({
           action: 'View',
           title: 'Your post was shared.',
           callback: function() {
-            Router.go('activites');
+            Router.go('activityList');
           }
         });
       }
