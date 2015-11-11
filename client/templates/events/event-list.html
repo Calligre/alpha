@@ -3,18 +3,12 @@
     {{> nav title='Events'}}
 
     <div class="content-scrollable">
-      <div class="list-events list-agenda">
-        <h1 class='title-agenda'>Agenda</h1>
-        {{#each agenda_events}}
-          {{> eventItem}}
-        {{/each}}
-      </div>
-
+      <button id="all" class="events-toggle selected">All Events</button>
+      <button id="agenda" class="events-toggle">My Agenda</button>
       <div class="list-events">
-        <h1 class='title-events'>Events</h1>
-        {{#each events}}
-          {{> eventItem}}
-        {{/each}}
+      {{#each events}}
+        {{> eventItem}}
+      {{/each}}
       </div>
     </div>
 

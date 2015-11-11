@@ -240,6 +240,44 @@
 }
 
 .page.events {
+  .event-thumbnail {
+    opacity: 0.3;
+  }
+
+  .attribution-event {
+    .title-event {
+      color: black;
+      font-size: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 25px 5px;
+    }
+
+    .metadata-event {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 5px;
+      text-align: center;
+
+      .location-event {
+        .type-bold;
+        color: rgb(192,0,111);
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .date-event, .time-event {
+        color: rgb(68,69,69);
+        display: block;
+      }
+    }
+  }
+
   .item-recipe:first-child {
     height: 400px;
 
