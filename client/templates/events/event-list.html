@@ -1,6 +1,8 @@
 <template name="eventList">
   <div class="page events">
-    {{> nav title='Events'}}
+    {{#nav title='Events'}}
+      <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
+    {{/nav}}
 
     <div class="content-scrollable">
       <div class="list-events list-agenda">
