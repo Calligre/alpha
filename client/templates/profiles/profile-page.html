@@ -9,9 +9,37 @@
             {{#with data}}
               <div id='image'><img src='{{services.twitter.profile_image_url_https}}' /></div>
               <div id='name'>{{name}}</div>
-              {{#each arrayify services}}
-                <div id='service'>Find me on {{name}}!</div>
-              {{/each}}
+
+              <div>
+                <button id="logout-button">Sign Out</button>
+              </div>
+
+              <div>
+                {{#if hasFacebook}}
+                  <div class='service'>
+                    <a href='{{services.facebook.link}}'>Facebook: {{services.facebook.first_name}}</a>
+                  </div>
+                {{else}}
+                  <button class="link-facebook">Connect with Facebook.</button>
+                {{/if}}
+
+                {{#if hasTwitter}}
+                  <div class='service'>
+                    <a href='https://twitter.com/{{services.twitter.screenName}}'>Twitter: @{{services.twitter.screenName}}</a>
+                  </div>
+                {{else}}
+                  <button class="link-twitter">Connect with Twitter.</button>
+                {{/if}}
+
+                {{#if hasLinkedin}}
+                  <div class='service'>
+                    <a href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
+                  </div>
+                {{else}}
+                  <button class="link-linkedin">Connect with LinkedIn.</button>
+                {{/if}}
+              </div>
+
               <div id='school'>{{school}}</div>
               <div id='year'>{{year}}</div>
               <div id='program'>{{program}}</div>

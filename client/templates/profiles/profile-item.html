@@ -1,7 +1,11 @@
 <template name="profileItem">
   <a class="profile-page {{highlightedClass}}" href="{{pathFor 'profileList'}}/{{_id}}">
+
     <div class="user-profile">
-      <div class='image-item'><img src='{{services.twitter.profile_image_url_https}}' /></div>
+      <div class='image-item'>
+        <img src='{{services.twitter.profile_image_url_https}}' />
+      </div>
+
       <div class='name-item'>{{name}}</div>
       <div class='info-item'>
         <div class='school-small'>{{school}}</div>
@@ -11,5 +15,6 @@
         <div class='program-small'>{{program}}</div>
       </div>
     </div>
+
   </a>
 </template>
