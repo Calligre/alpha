@@ -4,14 +4,13 @@ Template.home.helpers({
   }
 });
 
-Template.linkTemplate.events({
-  'click .link-twitter': function() {
-    Meteor.linkWithTwitter();
-  },
-  'click .link-facebook': function() {
-    Meteor.linkWithFacebook();
-  },
-  'click .link-linkedin': function() {
-    Meteor.linkWithLinkedIn();
+Template.login.service = function()
+{
+    return [{name: 'facebook'}, {name:'twitter'}, {name:'linkedin'}];
+};
+
+Template.login.events({
+  'click #logout-button': function() {
+    Meteor.logout();
   }
 });

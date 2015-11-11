@@ -8,7 +8,8 @@
           <div class='user-profile'>
             {{#with data}}
               <div id='image'><img src='{{services.twitter.profile_image_url_https}}' /></div>
-              <div id='name'>{{name}}</div>
+	      <div id='name'>{{name}}</div>
+	      {{> linkTemplate}}
               {{#each arrayify services}}
                 <div id='service'>Find me on {{name}}!</div>
               {{/each}}
@@ -27,4 +28,15 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="linkTemplate">
+    <div>
+	<button id="logout-button">Sign Out</button>	
+    </div>
+    <div>
+      <button class="link-twitter">Connect with Twitter.</button>
+      <button class="link-facebook">Connect with Facebook.</button>
+      <button class="link-linkedin">Connect with LinkedIn.</button>
+    </div>
 </template>

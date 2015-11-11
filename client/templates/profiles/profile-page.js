@@ -10,3 +10,21 @@ Template.profilePage.helpers({
         return Router.current().userSubscription.ready();
     }
 });
+
+Template.linkTemplate.events({
+  'click .link-twitter': function() {
+    Meteor.linkWithTwitter();
+  },
+  'click .link-facebook': function() {
+    Meteor.linkWithFacebook();
+  },
+  'click .link-linkedin': function() {
+    Meteor.linkWithLinkedIn();
+  }
+});
+
+Template.login.events({
+  'click #logout-button': function() {
+    Meteor.logout();
+  }
+});
