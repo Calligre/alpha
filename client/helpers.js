@@ -38,12 +38,3 @@ Handlebars.registerHelper('activePage', function() {
 
   return _.include(routeNames, Router.current().route.name) && 'active';
 });
-
-Handlebars.registerHelper('arrayify',function(obj){
-    result = [];
-    for (var key in obj) {
-      result.push({name: key, value: obj[key]});
-    }
-
-    return result;
-});

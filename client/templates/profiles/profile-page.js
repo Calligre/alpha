@@ -9,6 +9,15 @@ Template.profilePage.helpers({
   },
   isReady: function() {
     return Router.current().userSubscription.ready();
+  },
+  hasFacebook: function() {
+    return 'facebook' in Meteor.user().services;
+  },
+  hasLinkedin: function() {
+    return 'linkedin' in Meteor.user().services;
+  },
+  hasTwitter: function() {
+    return 'twitter' in Meteor.user().services;
   }
 });
 
@@ -24,5 +33,7 @@ Template.profilePage.events({
   },
   'click #logout-button': function() {
     Meteor.logout();
+
+    Router.go('home');
   }
 });
