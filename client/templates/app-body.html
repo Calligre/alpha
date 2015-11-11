@@ -1,12 +1,14 @@
 <template name="appBody">
   <div id="container" class="{{menuOpen}} {{overlayOpen}}">
     <section id="menu" class="overthrow">
+
       <a href="{{pathFor 'home'}}" class="{{activePage 'home'}}">
         <span class="wrapper-menu-item">
           <span class="icon-home"></span>
           <span class="title-menu">Home</span>
         </span>
       </a>
+
       {{#if currentUser}}
         <a href="{{pathFor 'activityList'}}" class="{{activePage 'activityList'}}">
           <span class="wrapper-menu-item">

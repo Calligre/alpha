@@ -6,7 +6,7 @@ Template.eventPage.onCreated(function() {
 
 Template.eventPage.onRendered(function () {
   this.$('.event').touchwipe({
-    wipeDown: function () {
+    wipeDown: function() {
       if (Session.equals(TAB_KEY, 'event')) {
         Template.eventPage.setTab('make')
       }
@@ -15,10 +15,11 @@ Template.eventPage.onRendered(function () {
   });
 
   this.$('.attribution-event').touchwipe({
-    wipeUp: function () {
-      if (! Session.equals(TAB_KEY, 'event'))
+    wipeUp: function() {
+      if (!Session.equals(TAB_KEY, 'event'))
         Template.eventPage.setTab('event')
     },
+
     preventDefaultEvents: false
   });
 });
@@ -40,9 +41,6 @@ Template.eventPage.setTab = function(tab) {
 }
 
 Template.eventPage.helpers({
-  isActiveTab: function(name) {
-    return Session.equals(TAB_KEY, name);
-  },
   activeTabClass: function() {
     return Session.get(TAB_KEY);
   },
@@ -53,15 +51,12 @@ Template.eventPage.helpers({
     }
     return matches;
   },
-  activities: function() {
-    return [];
-    // return Activities.find({eventName: this.name}, {sort: {date: -1}});
+  isActiveTab: function(name) {
+    return Session.equals(TAB_KEY, name);
   },
-
   startDate: function(){
     return $.format.date(this.startDate.getTime(), "ddd h:mmp");
   },
-
   endDate: function(){
     return $.format.date(this.endDate.getTime(), "ddd h:mmp");
   }
@@ -74,8 +69,7 @@ Template.eventPage.events({
         console.error("Event ICS: Holy fuck how did you do that?")
     }
 
-    var dateToICSString = function(now)
-    {
+    var dateToICSString = function(now) {
       return "" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCMinutes() + now.getUTCSeconds() + "Z";
     };
 
@@ -93,14 +87,14 @@ Template.eventPage.events({
 
     Events.update({_id: Router.current().options.params.id}, {$addToSet: {'attendees': Meteor.userId()}});
   },
+  'click .js-share': function() {
+    Overlay.open('shareOverlay', this);
+  },
   'click .js-show-attend': function(event) {
     event.stopPropagation();
     Template.eventPage.setTab('make')
   },
   'click .js-uncollapse': function() {
     Template.eventPage.setTab('event')
-  },
-  'click .js-share': function() {
-    Overlay.open('shareOverlay', this);
   }
 });
