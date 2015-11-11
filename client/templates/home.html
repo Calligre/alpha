@@ -7,21 +7,23 @@
         <h1 class="title-home">
           <img src="img/app/logo.png" alt="cde2015"/>
         </h1>
+        <h2>Conference on Diversity in Engineering 2015</h2>
         <span class="arrow"></span>
       </div>
 
-      <div>
-        {{> loginButtons}}
-        {{> linkTemplate}}
-      </div>
+      {{#unless currentUser}}
+        <div>{{> login}}</div>
+      {{/unless}}
     </div>
   </div>
 </template>
 
-<template name="linkTemplate">
-  <div>
-    <button class="link-twitter">Connect with Twitter.</button>
-    <button class="link-facebook">Connect with Facebook.</button>
-    <button class="link-linkedin">Connect with LinkedIn.</button>
+<template name='login'>
+  <div id="login-buttons">
+    <div class="service-login-buttons">
+      {{#each service}}
+        {{> _loginButtonsLoggedOutSingleLoginButton}}
+      {{/each}}
+    </div>
   </div>
 </template>
