@@ -1,6 +1,5 @@
 <template name="shareOverlay">
   <div class="overlay share">
-
     {{#unless attachedImage}}
       <a href="#" class="js-close-overlay overlay-dismiss"><span class="icon-cross"></span></a>
       <div class="wrapper-heading">
@@ -27,16 +26,17 @@
 
           <textarea name="text" type="text"
             autocapitalize="off" autocorrect="off"
-            required maxlength="131"
-            class="message-share"
+            required maxlength="131" class="message-share"
             placeholder="Add a comment to your picture..."></textarea>
         </div>
 
         <div class="wrapper-checkbox">
-          <label for="tweeting" class="checkbox">
-            <input type="checkbox" name="tweeting" id="tweeting" checked>
-            <span>Post to Twitter</span>
-          </label>
+          {{#if hasTwitter}}
+            <label for="tweeting" class="checkbox">
+              <input type="checkbox" name="tweeting" id="tweeting" checked>
+              <span>Post to Twitter</span>
+            </label>
+          {{/if}}
         </div>
 
         <button class="btn-primary" type='submit'>
@@ -48,6 +48,5 @@
         </button>
       </form>
     {{/unless}}
-
   </div>
 </template>

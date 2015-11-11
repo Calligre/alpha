@@ -2,7 +2,7 @@ var TWEETING_KEY = 'shareOverlayTweeting';
 var IMAGE_KEY = 'shareOverlayAttachedImage';
 
 Template.shareOverlay.onCreated(function() {
-  Session.set(TWEETING_KEY, true);
+  Session.set(TWEETING_KEY, false);
   Session.set(IMAGE_KEY, null);
 });
 
@@ -10,11 +10,15 @@ Template.shareOverlay.helpers({
   attachedImage: function() {
     return Session.get(IMAGE_KEY);
   },
-
   avatar: function() {
     return Meteor.user().services.twitter.profile_image_url_https;
   },
-
+  hasFacebook: function() {
+    return 'facebook' in Meteor.user().services;
+  },
+  hasTwitter: function() {
+    return 'twitter' in Meteor.user().services;
+  },
   tweeting: function() {
     return Session.get(TWEETING_KEY);
   }
