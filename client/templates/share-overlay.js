@@ -1,18 +1,17 @@
 var TWEETING_KEY = 'shareOverlayTweeting';
 var FACEBOOK_KEY = 'shareOverlayFacebook';
 var IMAGE_KEY = 'shareOverlayAttachedImage';
+var TEXT_KEY = 'shareOverlayAttachedText';
 
 
 Template.shareOverlay.onCreated(function() {
   Session.set(TWEETING_KEY, false);
   Session.set(FACEBOOK_KEY, false);
   Session.set(IMAGE_KEY, null);
+  Session.set(TEXT_KEY, false);
 });
 
 Template.shareOverlay.helpers({
-  attachedImage: function() {
-    return Session.get(IMAGE_KEY);
-  },
   avatar: function() {
     return Meteor.user().services.twitter.profile_image_url_https;
   },
@@ -29,7 +28,13 @@ Template.shareOverlay.helpers({
     return Session.get(TWEETING_KEY);
   },
   socialing: function() {
-    return (Session.get(FACEBOOK_KEY) || Session.get(TWEETING_KEY));
+    return Session.get(FACEBOOK_KEY) || Session.get(TWEETING_KEY);
+  },
+  postData: function() {
+    return Session.get(IMAGE_KEY) || Session.get(TEXT_KEY);
+  },
+  postImage: function() {
+    return Session.get(IMAGE_KEY);
   }
 });
 
@@ -44,8 +49,13 @@ Template.shareOverlay.events({
     });
   },
 
-  'click .js-unattach-image': function() {
+  'click .js-attach-text': function() {
+    Session.set(TEXT_KEY, true);
+  },
+
+  'click .js-unattach': function() {
     Session.set(IMAGE_KEY, null);
+    Session.set(TEXT_KEY, false);
   },
 
   'change [name=facebooking]': function(event) {
