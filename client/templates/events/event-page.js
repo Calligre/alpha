@@ -66,12 +66,13 @@ Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
     var attendingEvent = Events.findOne(Router.current().options.params.id);
     if (!attendingEvent) {
-        console.error("Event ICS: Holy fuck how did you do that?")
+      console.error("Event ICS: Holy fuck how did you do that?")
     }
 
     var padLessThan10 = function(value) {
-      if(value < 10)
-          return "0" + value;
+      if(value < 10) {
+        return "0" + value;
+      }
       return value;
     };
 
