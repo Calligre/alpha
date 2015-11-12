@@ -7,7 +7,7 @@
         {{#if isReady}}
           <div class='user-profile'>
             {{#with data}}
-              <div id='image'><img src='{{services.twitter.profile_image_url_https}}' /></div>
+              <div id='image'><img src='{{avatar}}' /></div>
               <div id='name'>{{name}}</div>
 
               {{#if isCurrentUser}}
@@ -23,7 +23,9 @@
                   </div>
                 {{else}}
                   {{#if isCurrentUser}}
-                    <button class="link-facebook">Connect with Facebook.</button>
+                    <div class='service'>
+                      <button class="link-facebook">Connect with Facebook.</button>
+                    </div>
                   {{/if}}
                 {{/if}}
 
@@ -33,7 +35,9 @@
                   </div>
                 {{else}}
                   {{#if isCurrentUser}}
-                    <button class="link-twitter">Connect with Twitter.</button>
+                    <div class='service'>
+                      <button class="link-twitter">Connect with Twitter.</button>
+                    </div>
                   {{/if}}
                 {{/if}}
 
@@ -43,7 +47,9 @@
                   </div>
                 {{else}}
                   {{#if isCurrentUser}}
-                    <button class="link-linkedin">Connect with LinkedIn.</button>
+                    <div class='service'>
+                      <button class="link-linkedin">Connect with LinkedIn.</button>
+                    </div>
                   {{/if}}
                 {{/if}}
               </div>
