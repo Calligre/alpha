@@ -13,11 +13,15 @@ Template.shareOverlay.helpers({
   attachedImage: function() {
     return Session.get(IMAGE_KEY);
   },
-
   avatar: function() {
     return Meteor.user().services.twitter.profile_image_url_https;
   },
-
+  hasFacebook: function() {
+    return 'facebook' in Meteor.user().services;
+  },
+  hasTwitter: function() {
+    return 'twitter' in Meteor.user().services;
+  },
   tweeting: function() {
     return Session.get(TWEETING_KEY);
   },
@@ -73,7 +77,7 @@ Template.shareOverlay.events({
           action: 'View',
           title: 'Your post was shared.',
           callback: function() {
-            Router.go('activites');
+            Router.go('activityList');
           }
         });
       }
