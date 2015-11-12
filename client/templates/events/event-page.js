@@ -75,8 +75,14 @@ Template.eventPage.helpers({
     cal += "DTSTART:" + dateToICSString(attendingEvent['startDate']) + "\n";
     cal += "DTEND:" + dateToICSString(attendingEvent['endDate']) + "\n";
     cal += "SUMMARY:" + attendingEvent['title'] + "\n";
-    cal += "DESCRIPTION:" + "Speaker: " + attendingEvent['speaker'] + "; " + attendingEvent['description'] + "\n";
-    cal += "END:VEVENT\nEND:VCALENDAR\n"
+    cal += "DESCRIPTION:";
+    if(attendingEvent['speaker']) {
+      cal += "Speaker: " + attendingEvent['speaker'] + "; ";
+    }
+    if(attendingEvent['description']) {
+      cal += attendingEvent['description'];
+    }
+    cal += "\nEND:VEVENT\nEND:VCALENDAR\n"
 
     return "data:text/calendar;charset=utf8," + escape(cal);
   },
