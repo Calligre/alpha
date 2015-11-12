@@ -4,8 +4,8 @@ var IMAGE_KEY = 'shareOverlayAttachedImage';
 
 
 Template.shareOverlay.onCreated(function() {
-  Session.set(TWEETING_KEY, true);
-  Session.set(FACEBOOK_KEY, true);
+  Session.set(TWEETING_KEY, false);
+  Session.set(FACEBOOK_KEY, false);
   Session.set(IMAGE_KEY, null);
 });
 
@@ -22,14 +22,12 @@ Template.shareOverlay.helpers({
   hasTwitter: function() {
     return 'twitter' in Meteor.user().services;
   },
+  facebooking: function() {
+    return Session.get(FACEBOOK_KEY);
+  },
   tweeting: function() {
     return Session.get(TWEETING_KEY);
-  },
-
-  facebook: function() {
-  	return Session.get(FACEBOOK_KEY);
   }
-
 });
 
 Template.shareOverlay.events({
@@ -47,14 +45,13 @@ Template.shareOverlay.events({
     Session.set(IMAGE_KEY, null);
   },
 
+  'change [name=facebook]': function(event) {
+    Session.set(FACEBOOK_KEY, $(event.target).is(':checked'));
+  },
+
   'change [name=tweeting]': function(event) {
     Session.set(TWEETING_KEY, $(event.target).is(':checked'));
   },
-
-  'change [name=facebook]': function(event) {
-  	Session.set(FACEBOOK_KEY, $(event.target).is(':checked'));
-  },
-
 
   'submit': function(event, template) {
     var self = this;
@@ -68,7 +65,7 @@ Template.shareOverlay.events({
     Meteor.call('createActivity',
                 { text: text, image: Session.get(IMAGE_KEY) },
                 tweet,
-                // fbpost,
+                fbpost,
                 function(error, result) {
       if (error) {
         alert(error.reason);
