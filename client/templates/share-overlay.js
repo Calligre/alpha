@@ -27,6 +27,9 @@ Template.shareOverlay.helpers({
   },
   tweeting: function() {
     return Session.get(TWEETING_KEY);
+  },
+  socialing: function() {
+    return (Session.get(FACEBOOK_KEY) || Session.get(TWEETING_KEY));
   }
 });
 
@@ -45,7 +48,7 @@ Template.shareOverlay.events({
     Session.set(IMAGE_KEY, null);
   },
 
-  'change [name=facebook]': function(event) {
+  'change [name=facebooking]': function(event) {
     Session.set(FACEBOOK_KEY, $(event.target).is(':checked'));
   },
 

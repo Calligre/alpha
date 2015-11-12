@@ -31,20 +31,22 @@
         </div>
 
         <div class="wrapper-checkbox">
+          {{#if hasFacebook}}
+            <label for="facebooking" class="checkbox">
+              <input type="checkbox" name="facebooking" id="facebooking">
+              <span>Post to Facebook</span>
+            </label>
+          {{/if}}
           {{#if hasTwitter}}
             <label for="tweeting" class="checkbox">
-              <input type="checkbox" name="tweeting" id="tweeting" checked>
+              <input type="checkbox" name="tweeting" id="tweeting">
               <span>Post to Twitter</span>
             </label>
           {{/if}}
         </div>
 
         <button class="btn-primary" type='submit'>
-          {{#if tweeting}}
-            Share &amp; Tweet
-          {{else}}
-            Share
-          {{/if}}
+          Share{{#if socialing}} &amp; Post{{/if}}
         </button>
       </form>
     {{/unless}}
