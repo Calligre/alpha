@@ -54,10 +54,10 @@ Template.eventPage.helpers({
   isActiveTab: function(name) {
     return Session.equals(TAB_KEY, name);
   },
-  startDate: function(){
+  startDateDisplay: function(){
     return $.format.date(this.startDate.getTime(), "ddd h:mmp");
   },
-  endDate: function(){
+  endDateDisplay: function(){
     return $.format.date(this.endDate.getTime(), "ddd h:mmp");
   }
 });
@@ -66,14 +66,21 @@ Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
     var attendingEvent = Events.findOne(Router.current().options.params.id);
     if (!attendingEvent) {
-        console.error("Event ICS: Holy fuck how did you do that?")
+      console.error("Event ICS: Holy fuck how did you do that?")
     }
 
-    var dateToICSString = function(now) {
-      return "" + now.getUTCFullYear() + (parseInt(now.getUTCMonth()) + 1) + now.getUTCDate() + "T" + now.getUTCHours() + now.getUTCMinutes() + now.getUTCSeconds() + "Z";
+    var padLessThan10 = function(value) {
+      if(value < 10) {
+        return "0" + value;
+      }
+      return value;
     };
 
-    var cal = "BEGIN:VCALENDAR\nPRODID:-//Google Inc//Google Calendar 70.9054//EN\nVERSION:2.0\nCALSCALE:GREGORIAN\nX-WR-TIMEZONE:America/Toronto\n";
+    var dateToICSString = function(now) {
+      return "" + padLessThan10(now.getUTCFullYear()) + padLessThan10(parseInt(now.getUTCMonth()) + 1) + padLessThan10(now.getUTCDate()) + "T" + padLessThan10(now.getUTCHours()) + padLessThan10(now.getUTCMinutes()) + padLessThan10(now.getUTCSeconds()) + "Z";
+    };
+
+    var cal = "BEGIN:VCALENDAR\nVERSION:1.0\nCALSCALE:GREGORIAN\nX-WR-TIMEZONE:America/Toronto\n";
     cal += "BEGIN:VEVENT\n";
     cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
     cal += "DTSTAMP:" + dateToICSString(new Date()) + "\n";
