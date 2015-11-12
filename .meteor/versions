@@ -19,8 +19,6 @@ caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.1.0
 coffeescript@1.0.11
-crypto-base@0.0.0
-crypto-base64@0.0.0
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -47,6 +45,8 @@ iron:layout@0.4.1
 iron:router@0.9.4
 jonperl:accounts-linkedin@1.1.0
 jonperl:linkedin@1.1.0
+jparker:crypto-base64@0.1.0
+jparker:crypto-core@0.1.0
 jquery@1.11.4
 jquery-waypoints@1.0.4
 launch-screen@1.0.4
