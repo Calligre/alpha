@@ -9,3 +9,10 @@ Accounts.onCreateUser(function(options, user) {
 
   return user;
 });
+
+Meteor.users.allow({
+  update: function(userId, doc, fieldNames, modifier) {
+    var editableColumns = ["school", "year", "program", "about"];
+    return doc._id == userId && editableColumns.indexOf(fieldNames[0]) != -1;
+  }
+});
