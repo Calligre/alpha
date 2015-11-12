@@ -10,43 +10,41 @@
               <div id='image'><img src='{{services.twitter.profile_image_url_https}}' /></div>
               <div id='name'>{{name}}</div>
 
-              <div>
-                <button id="logout-button">Sign Out</button>
-              </div>
+              <div id='place'>{{place}} place</div>
+              <div id='points'>{{points}}</div>
 
-              <div>
+              <div id='services'>
                 {{#if hasFacebook}}
                   <div class='service'>
-                    <a href='{{services.facebook.link}}'>Facebook: {{services.facebook.first_name}}</a>
+                    <a class='facebook' href='{{services.facebook.link}}'>Facebook: {{services.facebook.first_name}}</a>
                   </div>
                 {{else}}
-                  <button class="link-facebook">Connect with Facebook.</button>
+                  <button class="link link-facebook">Connect with Facebook.</button>
                 {{/if}}
 
                 {{#if hasTwitter}}
                   <div class='service'>
-                    <a href='https://twitter.com/{{services.twitter.screenName}}'>Twitter: @{{services.twitter.screenName}}</a>
+                    <a class='twitter' href='https://twitter.com/{{services.twitter.screenName}}'>Twitter: @{{services.twitter.screenName}}</a>
                   </div>
                 {{else}}
-                  <button class="link-twitter">Connect with Twitter.</button>
+                  <button class="link link-twitter">Connect with Twitter.</button>
                 {{/if}}
 
                 {{#if hasLinkedin}}
                   <div class='service'>
-                    <a href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
+                    <a class='linkedin' href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
                   </div>
                 {{else}}
-                  <button class="link-linkedin">Connect with LinkedIn.</button>
+                  <button class="link link-linkedin">Connect with LinkedIn.</button>
                 {{/if}}
               </div>
 
               <div id='school'>{{school}}</div>
               <div id='year'>{{year}}</div>
               <div id='program'>{{program}}</div>
-              <div id='place'>{{place}} place</div>
-              <div id='points'>{{points}}</div>
               <div id='about'>{{about}}</div>
             {{/with}}
+              <button id="logout-button">Sign Out</button>
           </div>
         {{else}}
           <div class="wrapper-message">
