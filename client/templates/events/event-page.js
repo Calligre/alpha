@@ -51,22 +51,10 @@ Template.eventPage.helpers({
     }
     return matches;
   },
-  isActiveTab: function(name) {
-    return Session.equals(TAB_KEY, name);
-  },
-  startDateDisplay: function(){
-    return $.format.date(this.startDate.getTime(), "ddd h:mmp");
-  },
-  endDateDisplay: function(){
-    return $.format.date(this.endDate.getTime(), "ddd h:mmp");
-  }
-});
-
-Template.eventPage.events({
-  'click .js-add-to-agenda': function(event) {
+  getDownloadLink: function() {
     var attendingEvent = Events.findOne(Router.current().options.params.id);
     if (!attendingEvent) {
-      console.error("Event ICS: Holy fuck how did you do that?")
+      console.error("Event not found! " + Router.current().options.params.id);
     }
 
     var padLessThan10 = function(value) {
@@ -87,11 +75,30 @@ Template.eventPage.events({
     cal += "DTSTART:" + dateToICSString(attendingEvent['startDate']) + "\n";
     cal += "DTEND:" + dateToICSString(attendingEvent['endDate']) + "\n";
     cal += "SUMMARY:" + attendingEvent['title'] + "\n";
-    cal += "DESCRIPTION:" + "Speaker: " + attendingEvent['speaker'] + "; " + attendingEvent['description'] + "\n";
-    cal += "END:VEVENT\nEND:VCALENDAR\n"
+    cal += "DESCRIPTION:";
+    if(attendingEvent['speaker']) {
+      cal += "Speaker: " + attendingEvent['speaker'] + "; ";
+    }
+    if(attendingEvent['description']) {
+      cal += attendingEvent['description'];
+    }
+    cal += "\nEND:VEVENT\nEND:VCALENDAR\n"
 
-    window.open( "data:text/calendar;charset=utf8," + escape(cal));
+    return "data:text/calendar;charset=utf8," + escape(cal);
+  },
+  isActiveTab: function(name) {
+    return Session.equals(TAB_KEY, name);
+  },
+  startDateDisplay: function(){
+    return $.format.date(this.startDate.getTime(), "ddd h:mmp");
+  },
+  endDateDisplay: function(){
+    return $.format.date(this.endDate.getTime(), "ddd h:mmp");
+  }
+});
 
+Template.eventPage.events({
+  'click .js-add-to-agenda': function(event) {
     Events.update({_id: Router.current().options.params.id}, {$addToSet: {'attendees': Meteor.userId()}});
   },
   'click .js-share': function() {
