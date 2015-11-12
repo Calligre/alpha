@@ -51,6 +51,9 @@ Template.eventPage.helpers({
     }
     return matches;
   },
+  description: function() {
+    return this.description;
+  },
   isActiveTab: function(name) {
     return Session.equals(TAB_KEY, name);
   },

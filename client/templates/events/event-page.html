@@ -4,11 +4,16 @@
       <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
     {{/nav}}
 
-    <div class="image-event" style="background-image: url('{{image}}')"></div>
+      {{#with data}}
+      <div class="description-event">
+          <div class="description-container">
+            {{description}}
+          </div>
+        </div>
+      {{/with}}
 
     <div class="attribution-event js-uncollapse">
       {{#with data}}
-        <img src="{{image}}" />
         <h1 class="title-event">{{title}}</h1>
         <span class="metadata-event">
           <span class="location-event">{{location}}</span>
@@ -23,8 +28,10 @@
     </div>
 
     <div class="content-scrollable static-nav make-scrollable">
-      <a class="btn-tertiary js-share">Add this to your agenda?</a>
-      <img class='share-image' src="{{data.image}}" />
+      <a class="btn-tertiary">Add this to your agenda?</a>
+      <div class="share-image-container">
+        <img class='share-image' src="{{data.image}}" />
+      </div>
 
       <div class="btn-primary js-uncollapse js-add-to-agenda">Confirm</div>
     </div>
