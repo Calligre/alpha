@@ -4,22 +4,27 @@
 
   nav .bookmarked { color: @color-primary !important; }
 
-  .image-event {
-    .transform(translate3d(0,0,0));//Gpu rendering
-    background-position: center center;
-    background-repeat: no-repeat;
+  .description-event {
+    font-size: 20px;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: black;
+    margin-bottom: .5rem;
+    z-index: 0;
+    background-image: url('img/app/event-background.png');
     background-size: cover;
-    height: 78%;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
 
-    &:before {
-      .position(absolute, 0,0,0,0);
-      background: rgba(0,0,0,.3);
-      content: '';
-      opacity: 0;
-      z-index: 2;
+    &:empty { display: none; }
+
+    .description-container {
+      padding: 100px 20px;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.1);
+      text-align: center;
     }
   }
 
@@ -59,16 +64,6 @@
       max-height: 10em;
       opacity: 1;
       overflow: hidden;
-    }
-
-    .description-event {
-      .font-s3;
-      color: @color-well;
-      margin-bottom: .5rem;
-      padding: 0 1em;
-
-      &:after { content: '\2026'; } // Ellipsis
-      &:empty { display: none; }
     }
 
     .source,
@@ -227,12 +222,6 @@
   .metadata-wrapper { .transition( all @transition-time * .5 @easing); }
 }
 
-.page.event, .page.events {
-  .content-scrollable {
-    margin-top: 47px;
-  }
-}
-
 // Move the feed over the top when we are on it
 .page.event.feed {
   .feed-scrollable { .transform(translate3d(0,0,0)); }
@@ -340,7 +329,22 @@
 }
 
 .page.event {
-  .share-image {
-    height: 320px;
+  .share-image-container {
+    position: absolute;
+    top: 47px;
+    bottom: 47px;
+    left: 0;
+    right: 0;
+
+   .share-image {
+     height: 100%;
+    }
+  }
+
+  .js-add-to-agenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
