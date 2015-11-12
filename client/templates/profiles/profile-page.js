@@ -7,9 +7,6 @@ Template.profilePage.helpers({
 
     return matches;
   },
-  isReady: function() {
-    return Router.current().userSubscription.ready();
-  },
   hasFacebook: function() {
     return 'facebook' in Meteor.user().services;
   },
@@ -18,6 +15,12 @@ Template.profilePage.helpers({
   },
   hasTwitter: function() {
     return 'twitter' in Meteor.user().services;
+  },
+  isCurrentUser: function(){
+    return Router.current().options.params.id == Meteor.userId();
+  },
+  isReady: function() {
+    return Router.current().userSubscription.ready();
   }
 });
 
@@ -35,5 +38,17 @@ Template.profilePage.events({
     Meteor.logout();
 
     Router.go('home');
+  },
+  'blur #school.editable': function(){
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {school: $("#school").text()}});
+  },
+  'blur #year.editable': function(){
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {year: $("#year").text()}});
+  },
+  'blur #program.editable': function(){
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {program: $("#program").text()}});
+  },
+  'blur #about.editable': function(){
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {about: $("#about").text()}});
   }
 });

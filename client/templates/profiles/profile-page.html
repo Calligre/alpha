@@ -10,9 +10,11 @@
               <div id='image'><img src='{{services.twitter.profile_image_url_https}}' /></div>
               <div id='name'>{{name}}</div>
 
-              <div>
-                <button id="logout-button">Sign Out</button>
-              </div>
+              {{#if isCurrentUser}}
+                <div>
+                  <button id="logout-button">Sign Out</button>
+                </div>
+              {{/if}}
 
               <div>
                 {{#if hasFacebook}}
@@ -20,7 +22,9 @@
                     <a href='{{services.facebook.link}}'>Facebook: {{services.facebook.first_name}}</a>
                   </div>
                 {{else}}
-                  <button class="link-facebook">Connect with Facebook.</button>
+                  {{#if isCurrentUser}}
+                    <button class="link-facebook">Connect with Facebook.</button>
+                  {{/if}}
                 {{/if}}
 
                 {{#if hasTwitter}}
@@ -28,7 +32,9 @@
                     <a href='https://twitter.com/{{services.twitter.screenName}}'>Twitter: @{{services.twitter.screenName}}</a>
                   </div>
                 {{else}}
-                  <button class="link-twitter">Connect with Twitter.</button>
+                  {{#if isCurrentUser}}
+                    <button class="link-twitter">Connect with Twitter.</button>
+                  {{/if}}
                 {{/if}}
 
                 {{#if hasLinkedin}}
@@ -36,16 +42,19 @@
                     <a href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
                   </div>
                 {{else}}
-                  <button class="link-linkedin">Connect with LinkedIn.</button>
+                  {{#if isCurrentUser}}
+                    <button class="link-linkedin">Connect with LinkedIn.</button>
+                  {{/if}}
                 {{/if}}
               </div>
 
-              <div id='school'>{{school}}</div>
-              <div id='year'>{{year}}</div>
-              <div id='program'>{{program}}</div>
+              <!-- If is current current user -->
+              <div id='school' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{school}}</div>
+              <div id='year' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{year}}</div>
+              <div id='program' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{program}}</div>
+              <div id='about' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{about}}</div>
               <div id='place'>{{place}} place</div>
               <div id='points'>{{points}}</div>
-              <div id='about'>{{about}}</div>
             {{/with}}
           </div>
         {{else}}
