@@ -39,10 +39,10 @@ check
 accounts-facebook
 jonperl:accounts-linkedin
 bozhao:link-accounts-modified
-accounts-ui
 meteorhacks:npm
 
 
 npm-container
 mrt:cron
 fortawesome:fontawesome
+accounts-ui
