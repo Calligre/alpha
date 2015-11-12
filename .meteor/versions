@@ -45,8 +45,6 @@ iron:layout@0.4.1
 iron:router@0.9.4
 jonperl:accounts-linkedin@1.1.0
 jonperl:linkedin@1.1.0
-jparker:crypto-base64@0.1.0
-jparker:crypto-core@0.1.0
 jquery@1.11.4
 jquery-waypoints@1.0.4
 launch-screen@1.0.4
