@@ -5,7 +5,7 @@ Accounts.onCreateUser(function(options, user) {
     year: '2015',
     program: 'Engineering',
     about: 'I love CDE 2015!',
-    points: 42
+    points: 0
   });
 
   return user;
