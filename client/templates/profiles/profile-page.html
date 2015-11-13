@@ -43,7 +43,11 @@
                     <a class='linkedin' href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
                   </div>
                 {{else}}
-                  <button class="link link-linkedin">Connect with LinkedIn.</button>
+                  {{#if isCurrentUser}}
+                    <div class='service'>
+                      <button class="link link-linkedin">Connect with LinkedIn.</button>
+                    </div>
+                  {{/if}}
                 {{/if}}
               </div>
 
