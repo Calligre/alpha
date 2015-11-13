@@ -15,9 +15,8 @@ Template.profileList.created = function() {
   Session.set('sort_by_points', false);
 }
 
-
 Template.profileList.events({
-  'click #names': function(){
+  'click #names': function() {
     var names = $('#names');
     var points = $('#points');
     if (!names.hasClass('selected')) {
@@ -26,13 +25,13 @@ Template.profileList.events({
       Session.set('sort_by_points', false);
     }
   },
-  'click #points': function(){ 
+  'click #points': function() {
     var points = $('#points');
     var names = $('#names');
-    if (!points.hasClass('selected')) { 
+    if (!points.hasClass('selected')) {
       points.addClass('selected');
       names.removeClass('selected');
       Session.set('sort_by_points', true);
-    } 
+    }
   },
 });
