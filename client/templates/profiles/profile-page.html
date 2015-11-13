@@ -4,7 +4,8 @@
 
       <div class="content-scrollable">
         <div class="page-profile {{#unless isReady}}loading{{/unless}}">
-        {{#if isReady}}
+          {{#if isReady}}
+          <section>
           <div class='user-profile'>
             {{#with data}}
               <div id='image'><img src='{{avatar}}' /></div>
@@ -51,11 +52,12 @@
               <div id='year' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{year}}</div>
               <div id='program' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{program}}</div>
               <div id='about' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{about}}</div>
-              {{#if isCurrentUser}}
-                <button id="logout-button">Sign Out</button>
-              {{/if}}
             {{/with}}
           </div>
+            {{#if isCurrentUser}}
+              <button id="logout-button">Sign Out</button>
+            {{/if}}
+          </section>
         {{else}}
           <div class="wrapper-message">
             <div class="icon-sync"></div>
