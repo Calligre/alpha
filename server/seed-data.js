@@ -44,7 +44,7 @@ Meteor.startup(function() {
     });
 
     Events.insert({
-      title: "Psychology and Behaviour",
+      title: "Women in STEM: A Social Psychological Approach",
       speaker: "Crystal Tse, University of Waterloo",
       image: "http://www2.le.ac.uk/colleges/medbiopsych/research/r-themes/nb/images/strands.gif",
       description: "This talk will examine social psychological research on issues related to women's and minorities' experiences in the fields in which they are underrepresented and negatively stereotyped.",
@@ -65,9 +65,9 @@ Meteor.startup(function() {
     });
     Events.insert({
       title: "Encouraging Diversity in Engineering Through Outreach",
-      speaker: "Alan Ham, Engineers Without Borders",
+      speaker: "Alan Ham, Engineers of Tomorrow - Engineers Without Borders",
       image: "http://www.colorado.edu/engineering/sites/default/files/ewb-img-amelia-lyons.jpg",
-      description: "Engineers Without Borders",
+      description: "This session will talk about modern engineering messaging and its value to the future of the profession.",
       startDate: convertToEST(new Date(2015, 10, 14, 10, 15)),
       endDate: convertToEST(new Date(2015, 10, 14, 11, 15)),
       location: "Bloomingdale Room",
@@ -130,7 +130,7 @@ Meteor.startup(function() {
       title: "Intersectionality",
       speaker: "Filzah Nasir, University of Waterloo",
       image: "https://thecandleramiblog.files.wordpress.com/2014/12/intersectionality-580x483.jpg",
-      description: "An interactive introduction to the study of intersections between forms and systems of oppression, domination, or discrimination.",
+      description: "An interactive workshop that will  introduce the systematic barriers experienced by students in their quest for education.",
       startDate: convertToEST(new Date(2015, 10, 14, 14, 00)),
       endDate: convertToEST(new Date(2015, 10, 14, 17, 00)),
       location: "Heritage Room",
@@ -200,10 +200,10 @@ Meteor.startup(function() {
     });
 
     Events.insert({
-      title: "Keynote",
+      title: "Keynote: Changing the World Through Design",
       speaker: "Erica Garcia Lee, Erica Lee Consulting",
       image: "http://www.ericaleeconsulting.com/wp-content/uploads/2012/10/DSCN177021.jpeg",
-      description: "Erica Lee from Erica Lee Consulting delivers the morning Keynote.\nBuses at 8:40am and 9:05am",
+      description: "An exploration of the intersection between engineering and design, and how diversity adds to the problem solving process.\nBuses at 8:40am and 9:05am",
       startDate: convertToEST(new Date(2015, 10, 15, 9, 15)),
       endDate: convertToEST(new Date(2015, 10, 15, 10, 45)),
       location: "DC 1351",
@@ -231,7 +231,7 @@ Meteor.startup(function() {
       attendees: []
     });
     Events.insert({
-      title: "Water Infrastructure in Aboriginal Communities",
+      title: "Water Infrastructure in First Nation Communities",
       speaker: "Irving Leblanc, Assembly of First Nations",
       image: "http://i.cbc.ca/1.2014294.1381567477!/httpImage/image.jpg_gen/derivatives/original_300/si-strahl-watercp4680407.jpg",
       description: "A discussion of water infrastructure issues faced by Aboriginal communities.",
