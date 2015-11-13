@@ -86,7 +86,7 @@ Template.eventPage.helpers({
     }
     cal += "\nEND:VEVENT\nEND:VCALENDAR\n";
 
-    return "data:text/x-Vcalendar;charset=utf8," + escape(cal);
+    return "data:text/calendar;charset=utf8," + escape(cal);
   },
   isActiveTab: function(name) {
     return Session.equals(TAB_KEY, name);
