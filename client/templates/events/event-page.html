@@ -23,7 +23,11 @@
       {{/with}}
 
       <div class="btns-group">
-        <a class="btn-secondary no-state js-show-attend">Attend</a>
+        {{#if attending}}
+          <a class="btn-secondary no-state js-remove-from-agenda">Remove From Agenda</a>
+        {{else}}
+          <a class="btn-secondary no-state js-show-attend">Attend</a>
+        {{/if}}
       </div>
     </div>
 
