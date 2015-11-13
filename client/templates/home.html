@@ -42,9 +42,16 @@
         </div>
 
       {{else}}
-        {{#unless loggingUser}}
+        {{#if isReady}}
           <div>{{> login}}</div>
-        {{/unless}}
+        {{else}}
+          <div class='loading'>
+            <div class="wrapper-message">
+              <div class="icon-sync"></div>
+              <div class="title-message">Loading</div>
+            </div>
+          </div>
+        {{/if}}
       {{/if}}
     </div>
   </div>

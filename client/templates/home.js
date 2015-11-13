@@ -1,3 +1,9 @@
+Template.home.helpers({
+  isReady: function() {
+    return Accounts.loginServicesConfigured();
+  }
+});
+
 Template.login.events({
   'click .sign-in-text-facebook': function(event) {
     Meteor.loginWithFacebook({}, function(err) {
