@@ -11,6 +11,12 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
+Accounts.ui.config({
+  requestPermissions: {
+    facebook: ['publish_actions']
+  }
+});
+
 Meteor.users.allow({
   update: function(userId, doc, fieldNames, modifier) {
     var editableColumns = ["school", "year", "program", "about"];
