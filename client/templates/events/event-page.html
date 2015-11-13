@@ -33,7 +33,9 @@
         <img class='share-image' src="{{data.image}}" />
       </div>
 
-      <div class="btn-primary js-uncollapse js-add-to-agenda">Confirm</div>
+      <div class="btn-primary js-uncollapse js-add-to-agenda">
+        <a href={{getDownloadLink}} download={{data._id}}.ics>Confirm</a>
+      </div>
     </div>
   </div>
 </template>

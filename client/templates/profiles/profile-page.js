@@ -1,20 +1,49 @@
 Template.profilePage.helpers({
-  data: function() {
-    var matches = Meteor.users.findOne(Router.current().options.params.id);
-    if (!matches) {
+  avatar: function() {
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
       console.error("Profile not found! " + Router.current().options.params.id);
     }
 
-    return matches;
+    if ('twitter' in user.services) {
+      return user.services.twitter.profile_image_url_https;
+    } else if ('facebook' in user.services) {
+      return user.services.facebook.image_url;
+    } else {
+      return 'http://publications.uew.edu.gh/2015/sites/default/files/default_profile_pic.jpg';
+    }
+  },
+  data: function() {
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return user;
   },
   hasFacebook: function() {
-    return 'facebook' in Meteor.user().services;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return 'facebook' in user.services;
   },
   hasLinkedin: function() {
-    return 'linkedin' in Meteor.user().services;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return 'linkedin' in user.services;
   },
   hasTwitter: function() {
-    return 'twitter' in Meteor.user().services;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return 'twitter' in user.services;
   },
   isCurrentUser: function(){
     return Router.current().options.params.id == Meteor.userId();
@@ -27,6 +56,18 @@ Template.profilePage.helpers({
 Template.profilePage.events({
   'click .link-facebook': function() {
     Meteor.linkWithFacebook();
+
+    var response = HTTP.get(
+      'https://graph.facebook.com/v2.5/' + Meteor.user().services.facebook.id + '/picture', {
+        params: {
+          redirect: false,
+          type: 'large'
+        }
+      }, function(err, data) {
+        Meteor.users.update({_id: Meteor.userId()},
+                            {$set: {'services.facebook.image_url': data.data.data.url}});
+      }
+    );
   },
   'click .link-linkedin': function() {
     Meteor.linkWithLinkedIn();

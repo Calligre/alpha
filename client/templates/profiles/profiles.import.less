@@ -9,16 +9,27 @@
 }
 
 .page.profile {
+  height: 100%;
+
+  section {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    height: 100%;
+  }
+
   .user-profile {
     margin-top: 50px;
     text-align: center;
+    flex: 1 1 auto;
+    overflow: auto;
 
     #image {
       img {
-        height: 48px;
-        width: 48px;
+        height: 100px;
+        width: 100px;
         border: 1px solid black;
-        border-radius: 24px;
+        border-radius: 50px;
       }
 
       margin-bottom: 10px;
@@ -27,26 +38,110 @@
     div {
       margin-bottom: 2px;
     }
+
+    #name {
+      font-size: 36px;
+    }
+
+    #points {
+      margin-bottom: 30px;
+    }
+
+    #services {
+      margin-bottom: 20px;
+
+      .service {
+        .facebook {
+          color:#45619D !important; 
+        }
+
+        .twitter {
+          color:#4099FF !important; 
+        }
+
+        .linkedin {
+          color:#0077B5 !important; 
+        }
+      }
+
+      .link {
+        width: 200px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        color: white;
+
+        &.link-facebook {
+          background-color:#45619D; 
+        }
+
+        &.link-twitter {
+          background-color:#4099FF; 
+        }
+
+        &.link-linkedin {
+          background-color:#0077B5; 
+        }
+      }
+    }
+
+    .profile-info {
+      padding: 5px 20px;
+    }
+  }
+  #logout-button {
+    padding: 20px;
+    width: 100%;
+    flex: 0 1 60px;
   }
 }
 
 .page.profiles {
   .user-profile {
-    margin-left: 5px;
+    clear: both;
+
+    .name-item {
+      clear: right;
+    }
 
     .image-item {
       margin-right: 5px;
+      margin: 10px 5px;
     }
 
     div {
       float: left;
-      margin-top: 5px;
     }
 
-    .info-item {
-      div {
-        margin-right: 3px;
+    .description-item {
+      margin-left: 10px;
+
+      .name-item {
+        margin-top: 15px;
       }
+
+      .info-item {
+        clear: left;
+        margin-top: 5px;
+
+        div {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  .people-toggle {
+    background-color: #bbbbbb;
+    color: white;
+    width: 50%;
+    margin: -1px;
+    text-align: center;
+    padding: 15px;
+    display: inline-block !important;
+
+    &.selected {
+      background-color: #7c7c7c
     }
   }
 }

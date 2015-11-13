@@ -4,59 +4,64 @@
 
       <div class="content-scrollable">
         <div class="page-profile {{#unless isReady}}loading{{/unless}}">
-        {{#if isReady}}
+          {{#if isReady}}
+          <section>
           <div class='user-profile'>
             {{#with data}}
-              <div id='image'><img src='{{services.twitter.profile_image_url_https}}' /></div>
+              <div id='image'><img src='{{avatar}}' /></div>
               <div id='name'>{{name}}</div>
 
-              {{#if isCurrentUser}}
-                <div>
-                  <button id="logout-button">Sign Out</button>
-                </div>
-              {{/if}}
+              <div id='points'>{{points}} POINTS - RANK: {{place}}</div>
 
-              <div>
+              <div id='services'>
                 {{#if hasFacebook}}
                   <div class='service'>
-                    <a href='{{services.facebook.link}}'>Facebook: {{services.facebook.first_name}}</a>
+                    <a class='facebook' href='{{services.facebook.link}}'>Facebook: {{services.facebook.first_name}}</a>
                   </div>
                 {{else}}
                   {{#if isCurrentUser}}
-                    <button class="link-facebook">Connect with Facebook.</button>
+                    <div class='service'>
+                      <button class="link link-facebook">Connect with Facebook</button>
+                    </div>
                   {{/if}}
                 {{/if}}
 
                 {{#if hasTwitter}}
                   <div class='service'>
-                    <a href='https://twitter.com/{{services.twitter.screenName}}'>Twitter: @{{services.twitter.screenName}}</a>
+                    <a class='twitter' href='https://twitter.com/{{services.twitter.screenName}}'>Twitter: @{{services.twitter.screenName}}</a>
                   </div>
                 {{else}}
                   {{#if isCurrentUser}}
-                    <button class="link-twitter">Connect with Twitter.</button>
+                    <div class='service'>
+                      <button class="link link-twitter">Connect with Twitter</button>
+                    </div>
                   {{/if}}
                 {{/if}}
 
                 {{#if hasLinkedin}}
                   <div class='service'>
-                    <a href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
+                    <a class='linkedin' href='https://www.linkedin.com/profile/view?id={{services.linkedin.id}}'>LinkedIn: {{name}}</a>
                   </div>
                 {{else}}
                   {{#if isCurrentUser}}
-                    <button class="link-linkedin">Connect with LinkedIn.</button>
+                    <div class='service'>
+                      <button class="link link-linkedin">Connect with LinkedIn.</button>
+                    </div>
                   {{/if}}
                 {{/if}}
               </div>
 
               <!-- If is current current user -->
-              <div id='school' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{school}}</div>
-              <div id='year' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{year}}</div>
-              <div id='program' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{program}}</div>
-              <div id='about' class="{{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{about}}</div>
-              <div id='place'>{{place}} place</div>
-              <div id='points'>{{points}}</div>
+              <div id='school' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{school}}</div>
+              <div id='year' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{year}}</div>
+              <div id='program' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{program}}</div>
+              <div id='about' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{about}}</div>
             {{/with}}
           </div>
+            {{#if isCurrentUser}}
+              <button id="logout-button">Sign Out</button>
+            {{/if}}
+          </section>
         {{else}}
           <div class="wrapper-message">
             <div class="icon-sync"></div>

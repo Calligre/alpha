@@ -24,7 +24,7 @@ Template.activityItem.helpers({
   },
   isLiked: function(){
     var match = _.find(this.likes, function(d) {
-      return d = Meteor.userId();
+      return d == Meteor.userId();
     });
 
     return !_.isUndefined(match);
