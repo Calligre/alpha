@@ -1,4 +1,4 @@
-var FACEBOOK_ENABLED = false;
+var FACEBOOK_ENABLED = true;
 
 var TWEETING_KEY = 'shareOverlayTweeting';
 var FACEBOOK_KEY = 'shareOverlayFacebook';
