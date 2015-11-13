@@ -5,14 +5,13 @@ Handlebars.registerHelper('activePage', function() {
   return _.include(routeNames, Router.current().route.name) && 'active';
 });
 
-Handlebars.registerHelper('place', function() {
-    var idx;
-    Meteor.users.find({}, {sort: {points: 1}}).forEach(function(item, ind) {
-      if (item._id == Meteor.userId()) {
-        idx = ind;
-        return true;
-      };
-    });
+Handlebars.registerHelper('rank', function() {
+  var userRank = 0;
+  Meteor.users.find({}, {sort: {points: -1}}).forEach(function(item, idx) {
+    if (item._id == Router.current().options.params.id) {
+      userRank = idx + 1
+    }
+  });
 
-    return idx + 1;
+  return userRank;
 });
