@@ -37,5 +37,8 @@ Template.activityItem.events({
   },
   'click .activity-unlike': function() {
     Meteor.call('unlikeActivity', this._id);
+  },
+  'click .activity-reblog': function() {
+    // open share dialog pre-populated
   }
 });
