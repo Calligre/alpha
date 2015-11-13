@@ -10,11 +10,42 @@
         <h2>Conference on Diversity in Engineering 2015</h2>
         <span class="arrow"></span>
       </div>
-      {{#unless loggingUser}}
-        {{#unless currentUser}}
+
+      {{#if currentUser}}
+        <div id="link-container">
+          <div class="link-home"><a href='https://www.facebook.com/conferenceondiversityinengineering'>
+              <img class="link" src="img/app/facebook.png"/>
+          </a></div>
+          <div class="link-home"><a href='https://twitter.com/diversityineng'>
+              <img class="link" src="img/app/twitter.png"/>
+          </a></div>
+          <div class="link-home"><a href='https://www.youtube.com/channel/UCy80Ydr1QB2dOA1D9Us2_7Q'>
+              <img class="link" src="img/app/youtube.png"/>
+          </a></div>
+        </div>
+
+        <div class="info-container">
+          <div class="bold">Waterloo Inn Conference Hotel</div>
+          <div>475 King St. North</div>
+          <div>Waterloo, N2J 2Z5</div>
+        </div>
+
+        <div class="info-container">
+          <div><span class="bold">Waterloo Taxi:</span> 519-888-7777</div>
+          <div><span class="bold">City Cabs:</span> 519-747-7777</div>
+          <div><span class="bold">United Taxi:</span> 519-888-9999</div>
+        </div>
+
+        <div id="download-container">
+          <div class="download"><a href='http://2015.cde.cfes.ca/assets/pdf/en/CDE_delegate.pdf'>Delegate Package</a></div>
+          <div class="download"><a href='http://2015.cde.cfes.ca/assets/pdf/en/CFES_CoC.pdf'>Code of Conduct</a></div>
+        </div>
+
+      {{else}}
+        {{#unless loggingUser}}
           <div>{{> login}}</div>
         {{/unless}}
-      {{/unless}}
+      {{/if}}
     </div>
   </div>
 </template>
