@@ -1,3 +1,9 @@
+Template.eventList.events({
+  'click .js-share': function() {
+    Overlay.open('shareOverlay', this);
+  }
+});
+
 Template.eventList.helpers({
   events: function() {
     if (Session.get('isAllSelected')) {

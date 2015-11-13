@@ -1,5 +1,5 @@
 .overlay.share {
-  .wrapper-camera {
+  .wrapper-share {
     .position(absolute, auto, 0, 0, 0, 100%);
     text-align: center;
 
@@ -61,9 +61,17 @@
       border-top: 1px solid @color-rare;
       border-bottom: 1px solid @color-rare;
 
-      .checkbox { padding: 1rem; }
+      .checkbox {
+        display: inline;
+        padding: 1rem;
+        line-height: 40px !important;
+      }
     }
   }
 
   .btn-primary { .position(absolute, auto, 0, 0, 0, 100%); }
+}
+
+.camera-popup .photo-preview {
+  width: 280px;
 }

@@ -1,6 +1,8 @@
 <template name="activityList">
   <div class="page activity-list">
-    {{>nav title="Activity Feed"}}
+    {{#nav title='Activity Feed'}}
+      <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
+    {{/nav}}
 
     <div class="content-scrollable">
       <div class="list-activities {{#unless isReady}}loading{{/unless}}">
