@@ -6,7 +6,7 @@ var convertToEST = function(date) {
 }
 
 Meteor.startup(function() {
-  Activities._ensureIndex({text: 1, image: 1, date: 1}, {unique: true, dropDups: true});
+  Activities._ensureIndex({text: 1, userName: 1}, {unique: true, dropDups: true});
 
   Events._ensureIndex({title: 1, speaker: 1, startDate: 1, endDate: 1}, {unique: true, dropDups: true});
   try {

@@ -1,7 +1,3 @@
-Meteor.publish('latestActivity', function () {
-  return Activities.latest();
-});
-
 Meteor.publish('feed', function() {
   return Activities.find({}, {sort: {date: -1}});
 });

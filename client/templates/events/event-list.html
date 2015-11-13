@@ -1,6 +1,8 @@
 <template name="eventList">
   <div class="page events">
-    {{> nav title='Events'}}
+    {{#nav title='Events'}}
+      <a href="#" class="nav-item js-share"><i class="fa fa-pencil-square-o" style="line-height: 3"></i></a>
+    {{/nav}}
 
     <div class="content-scrollable">
       <button id="all" class="events-toggle selected">All Events</button>
