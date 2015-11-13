@@ -75,6 +75,7 @@ Template.eventPage.helpers({
     cal += "DTSTART:" + dateToICSString(attendingEvent['startDate']) + "\n";
     cal += "DTEND:" + dateToICSString(attendingEvent['endDate']) + "\n";
     cal += "SUMMARY:" + attendingEvent['title'] + "\n";
+    cal += "LOCATION:" + attendingEvent['location'] + "\n";
     cal += "DESCRIPTION:";
     if(attendingEvent['speaker']) {
       cal += "Speaker: " + attendingEvent['speaker'] + "; ";
