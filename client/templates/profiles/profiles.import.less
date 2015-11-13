@@ -9,9 +9,20 @@
 }
 
 .page.profile {
+  height: 100%;
+
+  section {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    height: 100%;
+  }
+
   .user-profile {
     margin-top: 50px;
     text-align: center;
+    flex: 1 1 auto;
+    overflow: auto;
 
     #image {
       img {
@@ -77,15 +88,11 @@
     .profile-info {
       padding: 5px 20px;
     }
-
-    #logout-button {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 20px;
-      width: 100%;
-    }
+  }
+  #logout-button {
+    padding: 20px;
+    width: 100%;
+    flex: 0 1 60px;
   }
 }
 
