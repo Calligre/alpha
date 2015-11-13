@@ -70,7 +70,7 @@ Template.eventPage.helpers({
 
     var cal = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//AT Content Types//AT Event//EN\nX-WR-TIMEZONE:America/Toronto\nMETHOD:PUBLISH\n";
     cal += "BEGIN:VEVENT\n";
-    //cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
+    cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
     cal += "DTSTAMP:" + dateToICSString(new Date()) + "\n";
     cal += "CREATED:" + attendingEvent['title'] + "\n";
     cal += "LAST-MODIFIED:" + attendingEvent['title'] + "\n";
