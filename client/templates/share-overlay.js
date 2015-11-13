@@ -1,3 +1,5 @@
+var FACEBOOK_ENABLED = false;
+
 var TWEETING_KEY = 'shareOverlayTweeting';
 var FACEBOOK_KEY = 'shareOverlayFacebook';
 var IMAGE_KEY = 'shareOverlayAttachedImage';
@@ -33,7 +35,7 @@ Template.shareOverlay.helpers({
     }
   },
   hasFacebook: function() {
-    return 'facebook' in Meteor.user().services;
+    return FACEBOOK_ENABLED && 'facebook' in Meteor.user().services;
   },
   hasTwitter: function() {
     return 'twitter' in Meteor.user().services;
