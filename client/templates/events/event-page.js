@@ -70,18 +70,18 @@ Template.eventPage.helpers({
 
     var cal = "BEGIN:VCALENDAR\nVERSION:2.0\n";
     cal += "BEGIN:VEVENT\n";
-    // cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
-    // cal += "DTSTAMP:" + dateToICSString(new Date()) + "\n";
+    cal += "UID:" + attendingEvent['_id'] + "@cde.cfes.ca\n"
+    cal += "DTSTAMP:" + dateToICSString(new Date()) + "\n";
     cal += "DTSTART:" + dateToICSString(attendingEvent['startDate']) + "\n";
     cal += "DTEND:" + dateToICSString(attendingEvent['endDate']) + "\n";
     cal += "SUMMARY:" + attendingEvent['title'] + "\n";
-    // cal += "DESCRIPTION:";
-    // if(attendingEvent['speaker']) {
-    //   cal += "Speaker: " + attendingEvent['speaker'] + "; ";
-    // }
-    // if(attendingEvent['description']) {
-    //   cal += attendingEvent['description'];
-    // }
+    cal += "DESCRIPTION:";
+    if(attendingEvent['speaker']) {
+      cal += "Speaker: " + attendingEvent['speaker'] + "; ";
+    }
+    if(attendingEvent['description']) {
+      cal += attendingEvent['description'];
+    }
     cal += "\nEND:VEVENT\nEND:VCALENDAR\n";
 
     return "data:text/calendar;charset=utf8," + escape(cal);
