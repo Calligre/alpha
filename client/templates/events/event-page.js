@@ -40,6 +40,11 @@ Template.eventPage.setTab = function(tab) {
   $('.feed-scrollable').toggleClass('delayed', toEvent);
 }
 
+Template.eventPage.toggleTab = function(){
+    var tab = (Session.get(TAB_KEY) === 'event') ? 'make' : 'event';
+    Template.eventPage.setTab(tab);
+}
+
 Template.eventPage.helpers({
   activeTabClass: function() {
     return Session.get(TAB_KEY);
@@ -107,7 +112,7 @@ Template.eventPage.events({
   },
   'click .js-show-attend': function(event) {
     event.stopPropagation();
-    Template.eventPage.setTab('make')
+    Template.eventPage.toggleTab();
   },
   'click .js-uncollapse': function() {
     Template.eventPage.setTab('event')
