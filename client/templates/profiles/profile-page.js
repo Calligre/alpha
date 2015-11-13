@@ -1,29 +1,49 @@
 Template.profilePage.helpers({
   avatar: function() {
-    if ('twitter' in Meteor.user().services) {
-      return Meteor.user().services.twitter.profile_image_url_https;
-    } else if ('facebook' in Meteor.user().services) {
-      return Meteor.user().services.facebook.image_url;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    if ('twitter' in user.services) {
+      return user.services.twitter.profile_image_url_https;
+    } else if ('facebook' in user.services) {
+      return user.services.facebook.image_url;
     } else {
       return 'http://publications.uew.edu.gh/2015/sites/default/files/default_profile_pic.jpg';
     }
   },
   data: function() {
-    var matches = Meteor.users.findOne(Router.current().options.params.id);
-    if (!matches) {
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
       console.error("Profile not found! " + Router.current().options.params.id);
     }
 
-    return matches;
+    return user;
   },
   hasFacebook: function() {
-    return 'facebook' in Meteor.user().services;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return 'facebook' in user.services;
   },
   hasLinkedin: function() {
-    return 'linkedin' in Meteor.user().services;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return 'linkedin' in user.services;
   },
   hasTwitter: function() {
-    return 'twitter' in Meteor.user().services;
+    var user = Meteor.users.findOne(Router.current().options.params.id);
+    if (!user) {
+      console.error("Profile not found! " + Router.current().options.params.id);
+    }
+
+    return 'twitter' in user.services;
   },
   isCurrentUser: function(){
     return Router.current().options.params.id == Meteor.userId();
