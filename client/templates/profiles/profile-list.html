@@ -1,9 +1,10 @@
 <template name="profileList">
   <div class="page profiles">
-    {{#nav title='People'}}
-      <a href="#" class="nav-item js-points">Points!</a>
-    {{/nav}}
+    {{>nav title='People'}}
+
     <div class="content-scrollable">
+      <button id="names" class="people-toggle selected">By Name</button>
+      <button id="points" class="people-toggle">By Points</button>
       <div class="list-profiles {{#unless isReady}}loading{{/unless}}">
         {{#if isReady}}
           {{#each profiles}}
