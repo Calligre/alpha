@@ -11,12 +11,27 @@ Template.profileList.helpers({
   }
 });
 
-Template.profileList.events({
-  'click .js-points': function() {
-    Session.set('sort_by_points', !Session.get('sort_by_points'));
-  }
-});
-
 Template.profileList.created = function() {
   Session.set('sort_by_points', false);
 }
+
+Template.profileList.events({
+  'click #names': function() {
+    var names = $('#names');
+    var points = $('#points');
+    if (!names.hasClass('selected')) {
+      names.addClass('selected');
+      points.removeClass('selected');
+      Session.set('sort_by_points', false);
+    }
+  },
+  'click #points': function() {
+    var points = $('#points');
+    var names = $('#names');
+    if (!points.hasClass('selected')) {
+      points.addClass('selected');
+      names.removeClass('selected');
+      Session.set('sort_by_points', true);
+    }
+  },
+});
