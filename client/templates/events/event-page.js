@@ -19,7 +19,6 @@ Template.eventPage.onRendered(function () {
       if (!Session.equals(TAB_KEY, 'event'))
         Template.eventPage.setTab('event')
     },
-
     preventDefaultEvents: false
   });
 });
@@ -49,12 +48,21 @@ Template.eventPage.helpers({
   activeTabClass: function() {
     return Session.get(TAB_KEY);
   },
-  data: function() {
-    var matches = Events.findOne(Router.current().options.params.id);
-    if (!matches) {
+  attending: function() {
+    var match = Events.findOne(Router.current().options.params.id);
+    if (!match) {
         console.error("Event not found! " + Router.current().options.params.id);
     }
-    return matches;
+
+    return match.attendees.indexOf(Meteor.userId()) !== -1;
+  },
+  data: function() {
+    var match = Events.findOne(Router.current().options.params.id);
+    if (!match) {
+        console.error("Event not found! " + Router.current().options.params.id);
+    }
+
+    return match;
   },
   getDownloadLink: function() {
     var attendingEvent = Events.findOne(Router.current().options.params.id);
@@ -106,6 +114,9 @@ Template.eventPage.helpers({
 Template.eventPage.events({
   'click .js-add-to-agenda': function(event) {
     Events.update({_id: Router.current().options.params.id}, {$addToSet: {'attendees': Meteor.userId()}});
+  },
+  'click .js-remove-from-agenda': function(event) {
+    Events.update({_id: Router.current().options.params.id}, {$pull: {'attendees': Meteor.userId()}});
   },
   'click .js-share': function() {
     Overlay.open('shareOverlay', this);

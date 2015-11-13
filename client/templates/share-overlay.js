@@ -3,12 +3,23 @@ var FACEBOOK_KEY = 'shareOverlayFacebook';
 var IMAGE_KEY = 'shareOverlayAttachedImage';
 var TEXT_KEY = 'shareOverlayAttachedText';
 
-
 Template.shareOverlay.onCreated(function() {
   Session.set(TWEETING_KEY, false);
   Session.set(FACEBOOK_KEY, false);
-  Session.set(IMAGE_KEY, null);
-  Session.set(TEXT_KEY, false);
+
+  if (this.data.image) {
+    Session.set(IMAGE_KEY, this.data.image);
+  } else {
+    Session.set(IMAGE_KEY, null);
+  }
+
+  Session.set(TEXT_KEY, this.data.text ? true : false);
+});
+
+Template.shareOverlay.onRendered(function() {
+  if (this.data.text) {
+    $('.form-group').find('[name=text]').text('RT ' + this.data.userName + ': "' + this.data.text + '"');
+  }
 });
 
 Template.shareOverlay.helpers({
@@ -73,8 +84,6 @@ Template.shareOverlay.events({
   },
 
   'submit': function(event, template) {
-    var self = this;
-
     event.preventDefault();
 
     var text = $(event.target).find('[name=text]').val();

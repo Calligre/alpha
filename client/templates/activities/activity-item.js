@@ -39,6 +39,6 @@ Template.activityItem.events({
     Meteor.call('unlikeActivity', this._id);
   },
   'click .activity-reblog': function() {
-    // open share dialog pre-populated
+    Overlay.open('shareOverlay', {text: this.text, image: this.image, userName: this.userName});
   }
 });
