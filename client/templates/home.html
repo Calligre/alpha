@@ -10,11 +10,35 @@
         <h2>Conference on Diversity in Engineering 2015</h2>
         <span class="arrow"></span>
       </div>
-      {{#unless loggingUser}}
-        {{#unless currentUser}}
+
+      {{#if currentUser}}
+        <div>
+          <div><a href='https://www.facebook.com/conferenceondiversityinengineering'>CDE Facebook</a></div>
+          <div><a href='https://twitter.com/diversityineng'>CDE Twitter</a></div>
+          <div><a href='https://www.youtube.com/channel/UCy80Ydr1QB2dOA1D9Us2_7Q'>CDE YouTube</a></div>
+        </div>
+
+        <div>
+          <div><a href='http://2015.cde.cfes.ca/assets/pdf/en/CFES_CoC.pdf'>Code of Conduct</a></div>
+          <div><a href='http://2015.cde.cfes.ca/assets/pdf/en/CDE_pre.pdf'>Pre-Delegate Package</a></div>
+        </div>
+
+        <div>
+          <div>Waterloo Inn Conference Hotel</div>
+          <div>475 King St. North</div>
+          <div>Waterloo, N2J 2Z5</div>
+        </div>
+
+        <div>
+          <div>Waterloo Taxi: 519-888-7777</div>
+          <div>City Cabs: 519-747-7777</div>
+          <div>United Taxi: 519-888-9999</div>
+        </div>
+      {{else}}
+        {{#unless loggingUser}}
           <div>{{> login}}</div>
         {{/unless}}
-      {{/unless}}
+      {{/if}}
     </div>
   </div>
 </template>
