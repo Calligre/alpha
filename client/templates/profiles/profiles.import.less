@@ -15,10 +15,10 @@
 
     #image {
       img {
-        height: 48px;
-        width: 48px;
+        height: 100px;
+        width: 100px;
         border: 1px solid black;
-        border-radius: 24px;
+        border-radius: 50px;
       }
 
       margin-bottom: 10px;
@@ -26,6 +26,65 @@
 
     div {
       margin-bottom: 2px;
+    }
+
+    #name {
+      font-size: 36px;
+    }
+
+    #points {
+      margin-bottom: 30px;
+    }
+
+    #services {
+      margin-bottom: 20px;
+
+      .service {
+        .facebook {
+          color:#45619D !important; 
+        }
+
+        .twitter {
+          color:#4099FF !important; 
+        }
+
+        .linkedin {
+          color:#0077B5 !important; 
+        }
+      }
+
+      .link {
+        width: 200px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        color: white;
+
+        &.link-facebook {
+          background-color:#45619D; 
+        }
+
+        &.link-twitter {
+          background-color:#4099FF; 
+        }
+
+        &.link-linkedin {
+          background-color:#0077B5; 
+        }
+      }
+    }
+
+    .profile-info {
+      padding: 5px 20px;
+    }
+
+    #logout-button {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      width: 100%;
     }
   }
 }
