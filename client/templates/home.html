@@ -53,9 +53,28 @@
 <template name='login'>
   <div id="login-buttons">
     <div class="service-login-buttons">
-      {{#each service}}
-        {{> _loginButtonsLoggedOutSingleLoginButton}}
-      {{/each}}
+
+      <div class="login-text-and-button">
+        <div class="login-button single-login-button" id="login-buttons-facebook">
+          <div class="login-image" id="login-buttons-image-facebook"></div>
+          <span class="text-besides-image sign-in-text-facebook">Sign in with Facebook</span>
+        </div>
+      </div>
+
+      <div class="login-text-and-button">
+        <div class="login-button single-login-button" id="login-buttons-twitter">
+          <div class="login-image" id="login-buttons-image-twitter"></div>
+          <span class="text-besides-image sign-in-text-twitter">Sign in with Twitter</span>
+        </div>
+      </div>
+
+      <div class="login-text-and-button">
+        <div class="login-button single-login-button" id="login-buttons-linkedin">
+          <div class="login-image" id="login-buttons-image-linkedin"></div>
+          <span class="text-besides-image sign-in-text-linkedin">Sign in with Linkedin</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
