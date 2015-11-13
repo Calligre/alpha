@@ -81,26 +81,10 @@ Template.shareOverlay.events({
     var tweet = Session.get(TWEETING_KEY);
     var fbpost = Session.get(FACEBOOK_KEY);
 
-    var blob = null;
-    if (fbpost && Session.get(IMAGE_KEY)) {
-      // convert base64 to raw binary data held in a string
-      // doesn't handle URLEncoded DataURIs
-      var byteString = window.atob(Session.get(IMAGE_KEY).replace(/^data.*base64,/, ''));
-      // write the bytes of the string to an ArrayBuffer
-      var ia = new Uint8Array(byteString.length);
-      for (var i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-      }
-
-      // write the ArrayBuffer to a blob
-      blob = new Blob([ia], { type: 'image/jpeg' });
-    }
-
     Meteor.call('createActivity',
                 { text: text, image: Session.get(IMAGE_KEY) },
                 tweet,
                 fbpost,
-                blob,
                 function(error, result) {
       if (error) {
         alert(error.reason);
