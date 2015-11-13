@@ -73,7 +73,7 @@
     text-indent: 0; //reset
     width: 4rem;
 
-    .icon-camera {
+    .icon-camera, .icon-rss {
       @dimension-camera: 3.5rem;
       .position(absolute, 50%, 50%, auto, auto, @dimension-camera, @dimension-camera );
       .transform(translate3d(50%, -50%,0));
@@ -86,12 +86,12 @@
 
     &:hover {
       box-shadow: darken(@color-primary, 3%) 0 0 0px 2px inset;
-      .icon-camera { background-color: darken(@color-primary, 3%); }
+      .icon-camera, .icon-rss { background-color: darken(@color-primary, 3%); }
     }
 
     &:active {
       box-shadow: darken(@color-primary, 3%) 0 0 0px 2px inset;
-      .icon-camera { background-color: darken(@color-primary, 3%); }
+      .icon-camera, .icon-rss { background-color: darken(@color-primary, 3%); }
     }
   }
 
