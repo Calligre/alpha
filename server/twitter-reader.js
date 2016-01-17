@@ -16,7 +16,7 @@ var update_activities = function() {
         Activities.insert({
           text: elem['text'],
           image: elem['entities']['media'] ? elem['entities']['media'][0]['media_url'] : null,
-          userAvatar: elem['user']['profile_image_url_https'],
+          userAvatar: elem['user']['profile_image_url_https'].replace("normal", "bigger"),
           userName: elem['user']['name'],
           place: elem['user']['location'],
           date: new Date(elem['created_at']),

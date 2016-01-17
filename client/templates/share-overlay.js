@@ -27,7 +27,7 @@ Template.shareOverlay.onRendered(function() {
 Template.shareOverlay.helpers({
   avatar: function() {
     if ('twitter' in Meteor.user().services) {
-      return Meteor.user().services.twitter.profile_image_url_https;
+      return Meteor.user().services.twitter.profile_image_url_https.replace("normal", "bigger");
     } else if ('facebook' in Meteor.user().services) {
       return Meteor.user().services.facebook.image_url;
     } else {

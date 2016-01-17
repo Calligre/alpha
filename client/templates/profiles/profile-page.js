@@ -6,7 +6,7 @@ Template.profilePage.helpers({
     }
 
     if ('twitter' in user.services) {
-      return user.services.twitter.profile_image_url_https;
+      return user.services.twitter.profile_image_url_https.replace("normal", "bigger");
     } else if ('facebook' in user.services) {
       return user.services.facebook.image_url;
     } else {

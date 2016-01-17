@@ -1,7 +1,7 @@
 Template.profileItem.helpers({
   avatar: function() {
     if ('twitter' in this.services) {
-      return this.services.twitter.profile_image_url_https;
+      return this.services.twitter.profile_image_url_https.replace("normal", "bigger");
     } else if ('facebook' in this.services) {
       return this.services.facebook.image_url;
     } else {
