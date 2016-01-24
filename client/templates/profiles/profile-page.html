@@ -52,10 +52,10 @@
               </div>
 
               <!-- If is current current user -->
-              <div id='school' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{school}}</div>
-              <div id='year' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{year}}</div>
-              <div id='program' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{program}}</div>
-              <div id='about' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}}>{{about}}</div>
+              <div id='school' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}} placeholder="School">{{school}}</div>
+              <div id='year' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}} placeholder="Graduating Year">{{year}}</div>
+              <div id='program' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}} placeholder="Program">{{program}}</div>
+              <div id='about' class="profile-info {{#if isCurrentUser}}editable{{/if}}" contenteditable={{isCurrentUser}} placeholder="About you">{{about}}</div>
             {{/with}}
           </div>
             {{#if isCurrentUser}}
