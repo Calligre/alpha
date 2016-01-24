@@ -1,18 +1,10 @@
 <template name="eventPage">
   <div class="page event {{activeTabClass}}">
-    {{#nav title='Event'}}
+    {{#nav title='Event' back=true}}
       <a href="#" class="nav-item js-share"><i class="fa fa-pencil-square-o" style="line-height: 3"></i></a>
     {{/nav}}
 
-    {{#with data}}
-      <div class="description-event">
-        <div class="description-container">
-          {{description}}
-        </div>
-      </div>
-    {{/with}}
-
-    <div class="attribution-event js-uncollapse">
+    <div class="attribution-event">
       {{#with data}}
         <h1 class="title-event">{{title}}</h1>
         <span class="metadata-event">
@@ -21,23 +13,22 @@
           <span class="time-event">{{startDateDisplay}} - {{endDateDisplay}}</span>
         </span>
       {{/with}}
-
-      <div class="btns-group">
-        {{#if attending}}
-          <a class="btn-secondary no-state js-remove-from-agenda">Remove From Agenda</a>
-        {{else}}
-          <a class="btn-secondary no-state js-show-attend">Attend</a>
-        {{/if}}
-      </div>
     </div>
 
-    <div class="content-scrollable static-nav make-scrollable">
-      <a class="btn-tertiary">Add this to your agenda?</a>
-      <div class="share-image-container">
-        <img class='share-image' src="{{data.image}}" />
-      </div>
-
-      <a id="download-calendar" class="btn-primary js-uncollapse js-add-to-agenda" href={{getDownloadLink}} download={{data._id}}.ics>Confirm</a>
+    <div class="btns-group">
+      {{#if attending}}
+        <a class="btn-secondary js-remove-from-agenda"><i class="fa fa-heart liked"></i></a>
+      {{else}}
+        <a class="btn-secondary js-add-to-agenda"><i class="fa fa-heart"></i></a>
+      {{/if}}
     </div>
+
+    {{#with data}}
+      <div class="description-event">
+        <div class="description-container">
+          {{description}}
+        </div>
+      </div>
+    {{/with}}
   </div>
 </template>

@@ -5,11 +5,23 @@ Template.eventList.events({
 });
 
 Template.eventList.helpers({
-  events: function() {
+  dates: function() {
+    return _.uniq(Events.find({},{}).fetch(), false, function(event) {return $.format.date(event.startDate.getTime(), "yyyy/MM/dd")});
+  },
+  events: function(date) {
+    var year = $.format.date(date.getTime(), "yyyy");
+    var month = parseInt($.format.date(date.getTime(), "MM")) - 1;
+    var day = $.format.date(date.getTime(), "dd");
+    var fromDate = new Date(year, month, day);
+    var toDate = new Date(year, month, parseInt(day) + 1)
+
     if (Session.get('isAllSelected')) {
-      return Events.find({}, {sort: {startDate: 1}});
+      return Events.find({startDate: {$gte: fromDate, $lte: toDate}}, {sort: {startDate: 1}});
     }
-    return Events.find({attendees: Meteor.userId()}, {sort: {startDate: 1}});
+    return Events.find({attendees: Meteor.userId(), startDate: {$gte: fromDate, $lte: toDate}}, {sort: {startDate: 1}});
+  },
+  formatStartDate: function(date) {
+    return $.format.date(date.getTime(), "ddd, MMM dd");
   },
   isReady: function() {
     return Router.current().eventsSubscription.ready();

@@ -1,13 +1,21 @@
 <template name="eventItem">
-<a class="item-event" href="{{pathFor 'eventList'}}/{{_id}}" style="background-image: url('{{image}}')">
-    <div class="attribution-event">
+<div class="btns-group">
+  {{#if attending}}
+    <a class="btn-secondary js-remove-from-agenda"><i class="fa fa-heart liked"></i></a>
+  {{else}}
+    <a class="btn-secondary js-add-to-agenda"><i class="fa fa-heart"></i></a>
+  {{/if}}
+</div>
+<div class="attribution-event">
+  <a class="item-event" href="{{pathFor 'eventList'}}/{{_id}}">
+  <div class="metadata-event-time">
+    <span class="time-event-start">{{startDate}}</span>
+    <span class="time-event-end">{{endDate}}</span>
+  </div>
+    <div class="metadata-event-detail">
       <span class="title-event">{{title}}</span>
-      <span class="metadata-event">
-        <span class="location-event">{{location}}</span>
-        <span class="date-event">{{date}}</span>
-        <span class="time-event">{{startDate}} - {{endDate}}</span>
-        <span class="follow-event"></span>
-      </span>
+      <span class="location-event">{{location}}</span>
     </div>
   </a>
+</div>
 </template>

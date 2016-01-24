@@ -8,8 +8,11 @@
       <button id="all" class="events-toggle selected">All Events</button>
       <button id="agenda" class="events-toggle">My Agenda</button>
       <div class="list-events">
-      {{#each events}}
-        {{> eventItem}}
+      {{#each dates}}
+      <h2 class="dateHeader">{{formatStartDate startDate}}</h2>
+        {{#each events startDate}}
+            {{> eventItem}}
+        {{/each}}
       {{/each}}
       </div>
     </div>

@@ -7,12 +7,11 @@
   .description-event {
     font-size: 20px;
     position: absolute;
-    top: 50px;
+    top: 205px;
     bottom: 0;
     left: 0;
     right: 0;
     color: black;
-    margin-bottom: .5rem;
     z-index: 0;
     background-image: url('img/app/event-background.png');
     background-size: cover;
@@ -29,13 +28,12 @@
   }
 
   .attribution-event {
-    .position(absolute, auto, 0, 0, 0, auto, auto);
+    .position(absolute, 50px, 0, auto, 0, auto, 180px);
     .transform(translate3d(0,0,0)); // Gpu rendering
     box-shadow: rgba(0,0,0,.1) 0 2px 2px 0;
     min-height: 9em;
     overflow: hidden;
     padding-top: 1.25em;
-    padding-bottom: 4em;
     text-align: center;
     z-index: 1;
 
@@ -88,9 +86,23 @@
   }
 
   .btns-group {
-    .position(absolute, auto, 0, 0, 0, 100%, 3em);
-    background: @color-medium-well;
+    .position(absolute, 175px, 10px, auto, auto, 100px, 100px);
     z-index:1;
+
+    .btn-secondary {
+      border-radius: 50px;
+      height: 100px;
+      width: 100px;
+
+      i {
+        font-size: 34px;
+        line-height: 75px;
+      }
+
+      i:hover, i.liked {
+        color: white
+      }
+    }
   }
 
   .btn-tertiary {
@@ -191,37 +203,6 @@
   }
 }
 
-// Collapse animation-specific styles
-@transition-time: 700ms;
-@easing: cubic-bezier(0.175, 0.885, 0.335, 1.05);
-.page.event {
-  .image-event:before { .transition( all @transition-time + 100ms ease-out ); }
-
-  .content-scrollable {
-    .transform(translate3d(0,0,0));
-    .transition( all @transition-time @easing );
-    .backface-visibility(hidden);
-
-
-    &.instant { .transition( transform 0, top @transition-time @easing ); }
-    &.delayed { .transition( transform 0 linear @transition-time, top @transition-time @easing); }
-  }
-
-  .attribution-event {
-    .transform(translate3d(0,0,0));
-    .transition( all @transition-time @easing );
-    .backface-visibility(hidden);
-
-    &:after { .transition( all @transition-time * .95 @easing ); }
-  }
-
-  .title-event {
-    .transition( all @transition-time * .75 @easing );
-  }
-
-  .metadata-wrapper { .transition( all @transition-time * .5 @easing); }
-}
-
 // Move the feed over the top when we are on it
 .page.event.feed {
   .feed-scrollable { .transform(translate3d(0,0,0)); }
@@ -237,46 +218,75 @@
     opacity: 0.3;
   }
 
+  .list-events {
+    h2 {
+      background-color: rgb(240,240,240);
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+  }
+
   .item-event {
-    height: 200px;
     width: 100%;
-    background-size: cover;
+    float: none !important;
+  }
+
+  .btns-group {
+    width: 50px;
+    margin: 10px 0;
+    float: right;
+
+    .btn-secondary {
+      background-color: transparent;
+      z-index: 1;
+
+      i {
+        color: lightgray;
+      }
+
+      i:hover, i.liked {
+        color: red;
+      }
+    }
   }
 
   .attribution-event {
-    background: rgba(255,255,255,0.6);
+    border-bottom: 1px solid rgb(240,240,240);
     width: 100%;
     height: 100%;
 
-    .title-event {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
-      padding: 25px 5px;
+    .metadata-event-time {
+      width: 75px;
+      text-align: right;
+      line-height: 24px;
+      float: left;
+      margin: 10px;
+
+      .time-event-start {
+        color: black;
+      }
+
+      .time-event-end {
+        color: gray;
+      }
     }
 
-    .metadata-event {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 10px 5px;
-      text-align: center;
+    .metadata-event-detail {
+      padding: 10px;
+      line-height: 24px;
+      z-index: -1;
+
+      .title-event {
+        color: black;
+        font-size: 16px;
+      }
 
       .location-event {
         .type-bold;
         color: rgb(192,0,111);
         display: block;
         margin-bottom: 5px;
-      }
-
-      .date-event, .time-event {
-        color: rgb(68,69,69);
-        display: block;
+        font-size: 12px;
       }
     }
   }
