@@ -26,6 +26,25 @@
 }
 
 .page.profile {
+  .editable[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: rgb(200,200,200); 
+  }
+
+  .editable[placeholder]:empty:focus:before {
+      content: "";
+  }
+
+  .editable {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    background-color: white;
+    background-color: -moz-field;
+    border: 1px solid darkgray;
+    box-shadow: 1px 1px 1px 0 lightgray inset;  
+    margin: 10px 5px;
+  }
+
   section {
     display: flex;
     flex-flow: column;
@@ -34,6 +53,7 @@
   }
 
   .user-profile {
+    padding-bottom: 20px;
     margin-top: 50px;
     text-align: center;
     flex: 1 1 auto;
