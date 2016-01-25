@@ -33,56 +33,22 @@
 
     .download {
       text-align: center;
-      background-color: #90037d;
+      background-color: @color-primary;
       padding: 10px;
       width: 200px;
       margin: 10px auto;
       border-radius: 5px;
-
-      a {
-        color: white !important;
-      }
+      color: white !important;
     }
   }
 
   .bg-image.home {
     height: 50%;
 
-    // Achieves down arrow mask effect
-    &:before,
-    &:after {
-      .transform(translate3d(0,0,0));
-      content: '';
-      background: @color-empty;
-      z-index: 1;
-    }
-
-    // Right side of down arrow
-    &:before {
-      .position(absolute, auto, 0, 0, 50%, auto, .5rem);
-      margin-left: .5rem;
-    }
-
-    // Left side of down arrow
-    &:after {
-      .position(absolute, auto, 50%, 0, 0, auto, .5rem);
-      margin-right: .5rem;
-    }
-
-    // Down arrow
-    .arrow {
-      .position(absolute, auto, auto, 0, 50%);
-      .transform(translate3d(-50%,0,0));
-      border-top: .5rem solid transparent;
-      border-left: .5rem solid @color-empty;
-      border-right: .5rem solid @color-empty;
-      content: '';
-      z-index: 1;
-    }
   }
 
   .title-home {
-    .position(absolute, 35%, 50%, auto, auto, 60%);
+    .position(absolute, 35%, 50%, auto, auto, 50%);
     .transform(translate3d(50%, -50%,0));
     display: inline-block;
 
@@ -90,7 +56,7 @@
   }
 
   h2 {
-    color: white;
+    color: black;
     position: absolute;
     bottom: 20px;
     text-align: center;

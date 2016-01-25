@@ -9,7 +9,7 @@ var T = new Twit({
 });
 
 var update_activities = function() {
-  T.get('search/tweets', { q: '#cde2015', count: 100 },
+  T.get('search/tweets', { q: '#oec2016', count: 100 },
         Meteor.bindEnvironment(function(err, data, response) {
     _.each(data['statuses'], function(elem) {
       try {
