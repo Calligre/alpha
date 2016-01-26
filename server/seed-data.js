@@ -103,7 +103,7 @@ Meteor.startup(function() {
       description: "Programming",
       location: "E5 - 2nd floor lobby",
       convertToEST(new Date(2016, 01, 29, 19, 30, 00)),
-      convertToEST(new Date(2016, 01, 30, 03, 30, 00)),
+      convertToEST(new Date(2016, 01, 30, 03, 00, 00)),
       attendees: []
     });
     Events.insert({
