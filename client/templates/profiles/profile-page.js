@@ -80,16 +80,34 @@ Template.profilePage.events({
 
     Router.go('home');
   },
-  'blur #school.editable': function(){
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {school: $("#school").text()}});
+  'blur #school.editable': function(e){
+    var user = Meteor.users.findOne(Meteor.userId());
+    var schoolText = $("#school").text();
+    if (user.school != schoolText) {
+      $(e.target).text('');
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {school: schoolText}});
+    }
   },
-  'blur #year.editable': function(){
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {year: $("#year").text()}});
+  'blur #year.editable': function(e){
+    var user = Meteor.users.findOne(Meteor.userId());
+    var yearText = $("#year").text();
+    if (user.year != yearText) {
+      $(e.target).text('');
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {year: yearText}});
+    }
   },
-  'blur #program.editable': function(){
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {program: $("#program").text()}});
+  'blur #program.editable': function(e){
+    var programText = $("#program").text();
+    if (user.program != programText) {
+      $(e.target).text('');
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {program: programText}});
+    }
   },
-  'blur #about.editable': function(){
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {about: $("#about").text()}});
+  'blur #about.editable': function(e){
+    var aboutText = $("#about").text();
+    if (user.about != aboutText) {
+      $(e.target).text('');
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {about: aboutText}});
+    }
   }
 });
