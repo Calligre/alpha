@@ -16,9 +16,9 @@ Template.eventList.helpers({
     var toDate = new Date(year, month, parseInt(day) + 1)
 
     if (Session.get('isAllSelected')) {
-      return Events.find({startDate: {$gte: fromDate, $lte: toDate}}, {sort: {startDate: 1}});
+      return Events.find({startDate: {$gte: fromDate, $lte: toDate}}, {sort: {startDate: 1, endDate: 1, title: 1}});
     }
-    return Events.find({attendees: Meteor.userId(), startDate: {$gte: fromDate, $lte: toDate}}, {sort: {startDate: 1}});
+    return Events.find({attendees: Meteor.userId(), startDate: {$gte: fromDate, $lte: toDate}}, {sort: {startDate: 1, endDate: 1, title: 1}});
   },
   formatStartDate: function(date) {
     return $.format.date(date.getTime(), "ddd, MMM dd");
