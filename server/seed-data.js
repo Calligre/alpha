@@ -214,8 +214,8 @@ Meteor.startup(function() {
       title: "Bus from Feds to Delta",
       description: "Goes back to the hotel for the night",
       location: "Feds Hall",
-      startDate: convertToEST(new Date(2016, 01, 29, 19, 30, 00)),
-      endDate: convertToEST(new Date(2016, 01, 29, 19, 45, 00)),
+      startDate: convertToEST(new Date(2016, 01, 29, 20, 00, 00)),
+      endDate: convertToEST(new Date(2016, 01, 29, 20, 15, 00)),
       attendees: []
     });
     Events.insert({
@@ -791,87 +791,87 @@ Meteor.startup(function() {
       description: "",
       location: "E5 3052",
       startDate: convertToEST(new Date(2016, 01, 30, 9, 00, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 9, 25, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 9, 30, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Lakehead",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 9, 30, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 9, 55, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 9, 35, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 10, 05, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Western",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 10, 00, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 10, 25, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 10, 10, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 10, 40, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Carleton 2",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 10, 50, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 11, 15, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 10, 55, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 25, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Waterloo B",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 11, 20, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 30, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 12, 00, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Waterloo A",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 12, 35, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 13, 00, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 12, 50, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 13, 20, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Lakehead 2",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 13, 05, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 13, 30, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 13, 25, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 13, 55, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - UofT",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 13, 50, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 14, 15, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 14, 00, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 14, 30, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Carleton 1",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 14, 20, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 14, 45, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 14, 45, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 15, 15, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - Ryerson",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 15, 05, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 15, 30, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 15, 20, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 15, 50, 00)),
       attendees: []
     });
     Events.insert({
       title: "Communications Presentation - UOIT",
       description: "",
       location: "E5 3052",
-      startDate: convertToEST(new Date(2016, 01, 30, 15, 35, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 16, 00, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 15, 55, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 16, 25, 00)),
       attendees: []
     });
     Events.insert({
@@ -894,144 +894,144 @@ Meteor.startup(function() {
       title: "SD Presentation - Windsor",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 9, 25, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 9, 45, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 9, 20, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 9, 40, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Conestoga",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 9, 25, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 9, 45, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 9, 20, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 9, 40, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Queen's",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 9, 50, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 10, 10, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 9, 45, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 10, 05, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Carleton",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 9, 50, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 10, 10, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 9, 45, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 10, 05, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Guelph",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 10, 15, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 10, 35, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 10, 05, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 10, 25, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Waterloo B",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 10, 15, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 10, 35, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 10, 05, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 10, 25, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - UOIT 1",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 10, 55, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 11, 15, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 10, 40, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 00, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Ryerson",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 10, 55, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 11, 15, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 10, 40, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 00, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - UOttawa",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 11, 20, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 11, 40, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 00, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 20, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - McMaster",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 11, 20, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 11, 40, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 00, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 20, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Lakehead",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 12, 05, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 25, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - RMC",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 12, 05, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 25, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Laurentian",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 12, 50, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 13, 10, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 12, 05, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - UOIT 2",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 12, 50, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 13, 10, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 11, 45, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 12, 05, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - UofT",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 13, 15, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 13, 35, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 12, 35, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 12, 55, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Western",
       description: "",
       location: "E5 3102",
-      startDate: convertToEST(new Date(2016, 01, 30, 13, 15, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 13, 35, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 12, 35, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 12, 55, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Presentation - Laurentian 2",
       description: "",
       location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 13, 40, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 14, 00, 00)),
+      startDate: convertToEST(new Date(2016, 01, 30, 12, 55, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 13, 15, 00)),
       attendees: []
     });
     Events.insert({
       title: "SD Testing - All Teams",
       description: "",
-      location: "E5 3101",
-      startDate: convertToEST(new Date(2016, 01, 30, 14, 10, 00)),
-      endDate: convertToEST(new Date(2016, 01, 30, 15, 50, 00)),
+      location: "E5 3102",
+      startDate: convertToEST(new Date(2016, 01, 30, 13, 25, 00)),
+      endDate: convertToEST(new Date(2016, 01, 30, 16, 40, 00)),
       attendees: []
     });
     Events.insert({
