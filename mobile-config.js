@@ -1,10 +1,10 @@
 App.info({
-  name: 'CDE 2015',
-  description: 'CDE 2015 Conference App.',
-  author: 'CDEvelopers',
-  email: 'admin@2015.cde.cfes.ca/',
-  website: 'http://2015.cde.cfes.ca/',
-  version: '1.0.0'
+  name: 'OEC 2016',
+  description: 'OEC 2016 Conference App.',
+  author: 'OEC Developers',
+  email: 'admin@oec2016.io',
+  website: 'http://oec2016.io/',
+  version: '2.0.0'
 });
 
 App.icons({
