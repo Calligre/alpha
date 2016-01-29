@@ -45,7 +45,7 @@ Template.profilePage.helpers({
 
     return 'twitter' in user.services;
   },
-  isCurrentUser: function(){
+  isCurrentUser: function() {
     return Router.current().options.params.id == Meteor.userId();
   },
   isReady: function() {
@@ -80,7 +80,7 @@ Template.profilePage.events({
 
     Router.go('home');
   },
-  'blur #school.editable': function(e){
+  'blur #school.editable': function(e) {
     var user = Meteor.users.findOne(Meteor.userId());
     var schoolText = $("#school").text();
     if (user.school != schoolText) {
@@ -88,7 +88,7 @@ Template.profilePage.events({
       Meteor.users.update({_id: Meteor.userId()}, {$set: {school: schoolText}});
     }
   },
-  'blur #year.editable': function(e){
+  'blur #year.editable': function(e) {
     var user = Meteor.users.findOne(Meteor.userId());
     var yearText = $("#year").text();
     if (user.year != yearText) {
@@ -96,14 +96,16 @@ Template.profilePage.events({
       Meteor.users.update({_id: Meteor.userId()}, {$set: {year: yearText}});
     }
   },
-  'blur #program.editable': function(e){
+  'blur #program.editable': function(e) {
+    var user = Meteor.users.findOne(Meteor.userId());
     var programText = $("#program").text();
     if (user.program != programText) {
       $(e.target).text('');
       Meteor.users.update({_id: Meteor.userId()}, {$set: {program: programText}});
     }
   },
-  'blur #about.editable': function(e){
+  'blur #about.editable': function(e) {
+    var user = Meteor.users.findOne(Meteor.userId());
     var aboutText = $("#about").text();
     if (user.about != aboutText) {
       $(e.target).text('');
